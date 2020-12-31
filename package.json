@@ -1,19 +1,42 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "dev": "mix",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot -- --https ",
+        "rollup:dev": "rollup -c rollup.config.js --environment BUILD:development",
+        "rollup:watch": "rollup -c rollup.config.js -w --environment BUILD:development",
+        "rollup:prod": "rollup -c rollup.config.js --environment BUILD:production",
+        "prod": "mix --production && yarn rollup:prod",
+        "production": "mix --production"
     },
     "devDependencies": {
+        "@rollup/plugin-babel": "^5.2.2",
+        "@rollup/plugin-commonjs": "^17.0.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-multi-entry": "^4.0.0",
+        "@rollup/plugin-node-resolve": "^11.0.1",
         "axios": "^0.19",
+        "concurrently": "^5.3.0",
         "cross-env": "^7.0",
-        "laravel-mix": "^5.0.1",
+        "glob-fs": "^0.1.7",
+        "hasha": "^5.2.2",
+        "laravel-mix": "^6.0.5",
+        "laravel-mix-make-file-hash": "^2.2.0",
         "lodash": "^4.17.19",
-        "resolve-url-loader": "^3.1.0"
+        "postcss": "^8.1",
+        "resolve-url-loader": "^3.1.0",
+        "rollup": "^2.35.1",
+        "rollup-plugin-scss": "^2.6.1",
+        "rollup-plugin-terser": "^7.0.2",
+        "sass": "^1.32.0",
+        "sass-loader": "8.*"
+    },
+    "dependencies": {
+        "bytemare": "^0.1.0",
+        "css-paint-polyfill": "^2.0.0",
+        "glider-js": "^1.7.3"
     }
 }
