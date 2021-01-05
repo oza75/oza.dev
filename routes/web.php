@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PortfolioController::class, 'home']);
-
+Route::view('/projects/happy-closet', 'front.portfolio.projects.happy-closet')->name('projects.happy-closet');
 Auth::routes();

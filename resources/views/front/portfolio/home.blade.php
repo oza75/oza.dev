@@ -52,7 +52,7 @@
                     <img loading="lazy" data-src="{{asset('assets/images/vuejs.png')}}" alt="VueJs" class="icon">
                     <div class="card-title">VueJs</div>
                     <div class="card-desc">
-                        Si vous avez besoin d'une application réactive et interactive, je maitrise le framework VueJS.
+                        Si vous avez besoin d'une application réactive, je maitrise le framework VueJS.
                     </div>
                 </div>
             </li>
@@ -74,13 +74,14 @@
         <ul class="projects flex align-center" id="projects-slider">
             <li class="project-card fade" data-delay="2">
                 <div class="project-img-wrapper">
-                    <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.png')}}" class="project-img"
+                    <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.png')}}"
+                         class="project-img"
                          alt="Happy closet">
                 </div>
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
                         <span class="project-title">Happy closet</span>
-                        <a href="" class="project-link">Détails</a>
+                        <a href="{{route('projects.happy-closet')}}" rel="nofollow" class="project-link">Détails</a>
                     </div>
                     <div class="project-desc">
                         Chef de projet, développement back-end et front-end avec le responsive de la plateforme Happy
@@ -122,7 +123,8 @@
             </li>
             <li class="project-card fade" data-delay="5">
                 <div class="project-img-wrapper">
-                    <img loading="lazy" data-src="{{asset('assets/images/projects/123bain.fr.png')}}" class="project-img"
+                    <img loading="lazy" data-src="{{asset('assets/images/projects/123bain.fr.png')}}"
+                         class="project-img"
                          alt="123Bain.fr">
                 </div>
                 <div class="project-details">
@@ -143,30 +145,36 @@
         <div class="section-title fade" data-delay="1">Me retrouver</div>
         <ul class="flex align-center social-network-cards">
             <li>
-                <a href="https://github.com/oza75" target="_blank" class="social-network-card flex align-center github fade" data-delay="2">
+                <a href="https://github.com/oza75" target="_blank"
+                   class="social-network-card flex align-center github fade" data-delay="2">
                     <div class="card-content">
                         <div class="card-title">Github</div>
                         <div class="card-link">github.com/oza75</div>
                     </div>
-                    <img loading="lazy" data-src="{{asset('assets/images/github.svg')}}"  class="card-icon" alt="Github" width="50" height="50">
+                    <img loading="lazy" data-src="{{asset('assets/images/github.svg')}}" class="card-icon" alt="Github"
+                         width="50" height="50">
                 </a>
             </li>
             <li>
-                <a href="https://twitter.com/oza_dev_" target="_blank" class="social-network-card flex align-center twitter fade" data-delay="3">
+                <a href="https://twitter.com/oza_dev_" target="_blank"
+                   class="social-network-card flex align-center twitter fade" data-delay="3">
                     <div class="card-content">
                         <div class="card-title">Twitter</div>
                         <div class="card-link">twitter.com/oza_dev_</div>
                     </div>
-                    <img loading="lazy" data-src="{{asset('assets/images/twitter.svg')}}" class="card-icon" alt="Twitter" width="50" height="50">
+                    <img loading="lazy" data-src="{{asset('assets/images/twitter.svg')}}" class="card-icon"
+                         alt="Twitter" width="50" height="50">
                 </a>
             </li>
             <li>
-                <a href="https://www.facebook.com/mrOza.dev" target="_blank" class="social-network-card flex align-center facebook fade" data-delay="4">
+                <a href="https://www.facebook.com/mrOza.dev" target="_blank"
+                   class="social-network-card flex align-center facebook fade" data-delay="4">
                     <div class="card-content">
                         <div class="card-title">Facebook</div>
                         <div class="card-link">facebook.com/mrOza.dev</div>
                     </div>
-                    <img loading="lazy" data-src="{{asset('assets/images/facebook.svg')}}" class="card-icon" alt="Facebook" width="50" height="50">
+                    <img loading="lazy" data-src="{{asset('assets/images/facebook.svg')}}" class="card-icon"
+                         alt="Facebook" width="50" height="50">
                 </a>
             </li>
         </ul>

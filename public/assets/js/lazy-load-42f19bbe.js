@@ -1,5 +1,5 @@
 const lazyLoadFallback = () => {
-  let lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+  let lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"],video[loading="lazy"]'));
   let active = false;
 
   const lazyLoad = function lazyLoad() {
@@ -33,7 +33,7 @@ const lazyLoadFallback = () => {
 };
 
 const lazyLoad = () => {
-  const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+  const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"],video[loading="lazy"]'));
 
   if ("IntersectionObserver" in window) {
     let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
@@ -44,6 +44,10 @@ const lazyLoad = () => {
           lazyImage.srcset = lazyImage.dataset.srcset;
           lazyImage.removeAttribute("loading");
           lazyImageObserver.unobserve(lazyImage);
+
+          if (String(entry.target.tagName).toLowerCase() === 'video') {
+            entry.target.load();
+          }
         }
       });
     });

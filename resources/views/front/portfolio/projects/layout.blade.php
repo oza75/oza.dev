@@ -3,18 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+@yield('seo')
+<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Ouattara Aboubacar | Portfolio</title>
-    <meta name="description" content="Développeur web full-stack à casablanca au maroc">
-    <meta name="keywords" content="Développeur de site web, Développeur web, Développeur front-end, Développeur back-end, Développeur maroc, Développeur Casablanca">
+    <title>@yield('title','Projet | Portfolio')</title>
 
     <!-- Scripts -->
-{{--    <script src="{{ asset('assets/js/portfolio.js') }}" type="module" defer></script>--}}
-    <script src="{{ mix('js/portfolio.js', 'assets') }}" type="module" defer></script>
-    <link rel="preload" href="{{asset('/assets/js/css-paint-polyfill-3105864d.js')}}" as="script">
+    <script src="{{ mix('js/project.js', 'assets') }}" type="module" defer></script>
+{{--    <link rel="preload" href="{{asset('/assets/js/css-paint-polyfill-3105864d.js')}}" as="script">--}}
 
 <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,7 +27,7 @@
 {{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
 
 <!-- Styles -->
-    <link href="{{ mix('css/portfolio.css', 'assets') }}" rel="stylesheet">
+    <link href="{{ mix('css/project.css', 'assets') }}" rel="stylesheet">
 </head>
 <body>
 @include('front.portfolio.partials.header')

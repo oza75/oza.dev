@@ -5,10 +5,17 @@
         "development": "mix",
         "watch": "mix watch",
         "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot -- --https ",
-        "rollup:dev": "rollup -c rollup.config.js --environment BUILD:development",
-        "rollup:watch": "rollup -c rollup.config.js -w --environment BUILD:development",
-        "rollup:prod": "rollup -c rollup.config.js --environment BUILD:production",
+        "hot": "mix watch --hot ",
+        "rollup:dev": "concurrently \"yarn rollup:dev:portfolio\" \"yarn rollup:dev:project\" \"yarn rollup:prod:turbolinks\"",
+        "rollup:watch": "concurrently \"yarn rollup:watch:portfolio\" \"yarn rollup:watch:project\" \"yarn rollup:prod:turbolinks\"",
+        "rollup:prod": "yarn rollup:prod:portfolio && yarn rollup:prod:project && yarn rollup:prod:turbolinks",
+        "rollup:prod:project": "rollup -c rollup.config.js --environment BUILD:production,BUILD_FILE:resources/js/project.js",
+        "rollup:watch:project": "rollup -c rollup.config.js -w --environment BUILD:development,BUILD_FILE:resources/js/project.js",
+        "rollup:dev:project": "rollup -c rollup.config.js --environment BUILD:development,BUILD_FILE:resources/js/project.js",
+        "rollup:prod:portfolio": "rollup -c rollup.config.js --environment BUILD:production,BUILD_FILE:resources/js/portfolio.js",
+        "rollup:watch:portfolio": "rollup -c rollup.config.js -w --environment BUILD:development,BUILD_FILE:resources/js/portfolio.js",
+        "rollup:dev:portfolio": "rollup -c rollup.config.js --environment BUILD:development,BUILD_FILE:resources/js/portfolio.js",
+        "rollup:prod:turbolinks": "rollup -c rollup.config.js --environment BUILD:production,BUILD_FILE:resources/js/turbolinks.js",
         "prod": "mix --production && yarn rollup:prod",
         "production": "mix --production"
     },
@@ -37,6 +44,8 @@
     "dependencies": {
         "bytemare": "^0.1.0",
         "css-paint-polyfill": "^2.0.0",
-        "glider-js": "^1.7.3"
+        "glider-js": "^1.7.3",
+        "quicklink": "^2.0.0",
+        "turbolinks": "^5.2.0"
     }
 }

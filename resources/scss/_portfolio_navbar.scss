@@ -1,0 +1,47 @@
+.portfolio-navbar {
+    padding: 20px 0;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+
+    a {
+        &:not(.btn):hover {
+            color: $primary-color !important;
+        }
+    }
+
+    .brand-name {
+        color: black;
+        position: relative;
+        transition: .2s linear;
+
+        &::before {
+            content: '';
+            width: 10px;
+            height: 25px;
+            background-color: $primary-color;
+            display: block;
+            margin-right: 8px;
+        }
+    }
+
+    .navbar-links {
+        li {
+            a {
+                color: inherit;
+            }
+
+            &:not(:last-child) {
+                margin-right: 12px;
+            }
+        }
+    }
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+        font-size: 15px;
+        justify-content: space-between !important;
+        .brand-name {
+            //display: none;
+        }
+    }
+}

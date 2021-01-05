@@ -1,6 +1,9 @@
-<header class="container">
+<header class="container page-header">
     <nav class="flex align-center space-between portfolio-navbar">
-        <a href="/" class="brand-name flex align-center"><span>Ouattara Aboubacar</span></a>
+        <a href="/" class="brand-name flex align-center">
+            <span class="hide-on-mobile">Ouattara Aboubacar</span>
+            <span class="hide-on-desktop">OZA</span>
+        </a>
         <ul class="flex align-center navbar-links">
             <li>
                 <a href="">Mes réalisations</a>

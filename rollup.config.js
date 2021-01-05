@@ -4,13 +4,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import json from "@rollup/plugin-json";
 import {terser} from "rollup-plugin-terser";
 import build from "./rollup.build";
-import multi from '@rollup/plugin-multi-entry';
 
 const isProduction = () => process.env.BUILD === 'production';
-
+const entryFile = process.env.BUILD_FILE || 'resources/js/portfolio.js';
 
 const plugins = [
-    multi({entryFileName: 'portfolio.js'}),
     json(),
     commonjs(),
     nodeResolve({jsnext: true, preferBuiltins: true, browser: true}),
@@ -24,7 +22,7 @@ if (isProduction()) {
 plugins.push(build({manifestFile: 'public/assets/mix-manifest.json'}));
 
 export default {
-    input: ['resources/js/portfolio.js'],
+    input: entryFile,
     output: {
         dir: 'public/assets/js/',
         format: 'es',

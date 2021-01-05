@@ -22,7 +22,8 @@ mix.options({processCssUrls: false});
 mix.setPublicPath('public/assets');
 mix.webpackConfig({output: {publicPath: '/assets/', chunkFilename: "[name].js"}});
 
-mix.sass('resources/scss/portfolio.scss', 'public/assets/css');
+mix.sass('resources/scss/portfolio.scss', 'public/assets/css')
+    .sass('resources/scss/project.scss', 'public/assets/css');
 
 if (mix.inProduction()) {
     mix.webpackConfig({output: {publicPath: '/assets/', chunkFilename: '[name].[contenthash].js'}});
