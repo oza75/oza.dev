@@ -41,6 +41,9 @@ const inProduction = () => process.env.BUILD === 'production';
 const removeOldFiles = (dir, filename) => {
     const oldFiles = glob.readdirSync(filename.replace(/(\.(.*))$/gm, `.*$&`), {cwd: path.resolve(dir)});
     Array.from(oldFiles).forEach(file => {
+        if (String(file).match(/(.*)-nomodule(.*)/gm)) {
+            return;
+        }
         fs.unlinkSync(path.resolve(dir, file));
     });
 }

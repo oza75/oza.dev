@@ -14,6 +14,8 @@
     <!-- Scripts -->
 {{--    <script src="{{ asset('assets/js/portfolio.js') }}" type="module" defer></script>--}}
     <script src="{{ mix('js/portfolio.js', 'assets') }}" type="module" defer></script>
+    <script src="{{ mix('js/portfolio-nomodule.js', 'assets') }}" nomodule  defer></script>
+
     <link rel="preload" href="{{asset('/assets/js/css-paint-polyfill-3105864d.js')}}" as="script">
 
 <!-- Fonts -->

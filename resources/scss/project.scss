@@ -146,3 +146,111 @@
         }
     }
 }
+
+.realisations {
+    .projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .project-card {
+        margin-bottom: 20px;
+        width: 30%;
+        //max-width: 352px;
+        margin-right: 20px;
+        background-color: white !important;
+        border-radius: 5px;
+        transition: .2s linear;
+        box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, .12);
+        //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+            .project-img {
+                //transform: scale(1.1);
+            }
+        }
+
+        //&.yellow {
+        //    background-color: $light-yellow;
+        //}
+        //
+        //&.green {
+        //    background-color: $light-green;
+        //}
+        //
+        //&.red {
+        //    background-color: $light-red;
+        //}
+
+        .project-img-wrapper {
+            padding: 10px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+
+            &::before {
+                content: ' ';
+                display: block;
+                padding-top: 70%;
+            }
+        }
+
+        .project-img {
+            transition: .2s ease;
+            object-fit: cover;
+            object-position: center bottom;
+            border-radius: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+        }
+
+        .project-details, .project-actions {
+            padding: 10px 15px;
+        }
+
+        .project-header {
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-family: $font-family-heading;
+            font-size: 20px;
+        }
+
+        .project-roles {
+        }
+
+        .project-link {
+            padding: 5px 10px;
+            border: 1px solid $primary-color;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: $primary-color;
+                color: white;
+            }
+        }
+    }
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+        .projects {
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 20px;
+
+        }
+    }
+}

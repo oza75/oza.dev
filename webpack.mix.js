@@ -27,6 +27,9 @@ mix.sass('resources/scss/portfolio.scss', 'public/assets/css')
 
 if (mix.inProduction()) {
     mix.webpackConfig({output: {publicPath: '/assets/', chunkFilename: '[name].[contenthash].js'}});
+    mix
+        .js('resources/js/portfolio.js', 'public/assets/js/portfolio-nomodule.js')
+        .js('resources/js/project.js', 'public/assets/js/project-nomodule.js');
 }
 if (mix.inProduction()) {
     mix.version();

@@ -6,7 +6,7 @@
         </a>
         <ul class="flex align-center navbar-links">
             <li>
-                <a href="">Mes réalisations</a>
+                <a href="{{route('projects.index')}}">Mes réalisations</a>
             </li>
             <li>
                 <a href="" class="btn btn-primary hide-on-mobile">Me contacter</a>

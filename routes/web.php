@@ -20,4 +20,5 @@ Route::view('/projects/happy-closet', 'front.portfolio.projects.happy-closet')->
 Route::view('/projects/urbateur', 'front.portfolio.projects.urbateur')->name('projects.urbateur');
 Route::view('/projects/fink-ma', 'front.portfolio.projects.fink')->name('projects.fink');
 Route::view('/projects/123-bain', 'front.portfolio.projects.123bain')->name('projects.123bain');
+Route::view('/réalisations', 'front.portfolio.projects.index')->name('projects.index');
 Auth::routes();

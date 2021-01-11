@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/project.js', 'assets') }}" type="module" defer></script>
+    <script src="{{ mix('js/project-nomodule.js', 'assets') }}" nomodule defer></script>
 {{--    <link rel="preload" href="{{asset('/assets/js/css-paint-polyfill-3105864d.js')}}" as="script">--}}
 
 <!-- Fonts -->
@@ -27,6 +28,7 @@
 {{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
 
 <!-- Styles -->
+
     <link href="{{ mix('css/project.css', 'assets') }}" rel="stylesheet">
 </head>
 <body>
