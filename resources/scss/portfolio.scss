@@ -2,6 +2,7 @@
 @import "common";
 @import "portfolio_navbar";
 @import "glider";
+@import "portfolio_footer";
 
 .hero-section {
     //min-height: 70vh;
@@ -229,7 +230,12 @@
         padding: 30px 15px;
         position: relative;
         z-index: 2;
-
+        &.border-green {
+            border-color: #009688;
+        }
+        &.border-red {
+            border-color: red;
+        }
 
         .icon {
             width: 50px;
@@ -254,8 +260,9 @@
             padding: 0 15px;
 
             &:before {
-                left: 0;
-                top: 0;
+                display: none;
+                //left: 0;
+                //top: 0;
                 //padding: 0 15%;
             }
         }
@@ -368,63 +375,6 @@
     }
 }
 
-.social-networks-section {
-    background-color: #f7f5ff;
 
-    .social-network-card {
-        padding: 20px 30px;
-        border: 1.5px solid $primary-color;
-        border-radius: 5px;
-        color: black;
-        margin-right: 30px;
-        transition: .2s ease-in;
-
-        &:hover {
-            &.github {
-                background-color: #ECEFF1;
-            }
-
-            &.twitter {
-                background-color: #E1F5FE;
-            }
-
-            &.facebook {
-                background-color: #E8EAF6;
-            }
-        }
-
-        //background-color: $light-red;
-        .card-title {
-            font-weight: bold;
-            font-family: $font-family-heading;
-            font-size: 20px;
-        }
-
-        .card-icon {
-            margin-left: 40px;
-        }
-    }
-
-    @media only screen and (max-width: $mobile-breakpoint) {
-        .social-network-cards {
-            flex-direction: column;
-            align-items: flex-start;
-
-            li {
-                width: 100%;
-            }
-        }
-        .social-network-card {
-            width: 100%;
-            margin-right: 0;
-            margin-bottom: 10px;
-            justify-content: space-between;
-
-            .card-icon {
-                margin-left: 0;
-            }
-        }
-    }
-}
 
 

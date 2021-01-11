@@ -88,12 +88,20 @@ body {
             display: inline-block;
         }
 
-        &:hover {
+        &:hover:not(:disabled) {
             svg {
                 margin-left: 5px;
                 opacity: 1;
                 transform: translateX(5px);
             }
+        }
+    }
+
+    &[disabled] {
+        &, &:hover {
+            color: gray !important;
+            border-color: gray !important;
+            background-color: transparent !important;
         }
     }
 }

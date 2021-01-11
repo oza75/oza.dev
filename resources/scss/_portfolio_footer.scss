@@ -1,0 +1,73 @@
+.social-networks-section {
+    background-color: #f7f5ff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .section-title {
+        font-family: $font-family-heading;
+        font-size: 30px;
+        margin-bottom: 50px;
+    }
+
+    .social-network-card {
+        padding: 20px 30px;
+        border: 1.5px solid $primary-color;
+        border-radius: 5px;
+        color: black;
+        margin-right: 30px;
+        transition: .2s ease-in;
+
+        &:hover {
+            &.github {
+                background-color: #ECEFF1;
+            }
+
+            &.twitter {
+                background-color: #E1F5FE;
+            }
+
+            &.facebook {
+                background-color: #E8EAF6;
+            }
+        }
+
+        //background-color: $light-red;
+        .card-title {
+            font-weight: bold;
+            font-family: $font-family-heading;
+            font-size: 20px;
+        }
+
+        .card-icon {
+            margin-left: 40px;
+        }
+    }
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+        padding-bottom: 20px;
+        padding-top: 20px;
+
+        .section-title {
+            margin-bottom: 10px !important;
+        }
+
+        .social-network-cards {
+            flex-direction: column;
+            align-items: flex-start;
+
+            li {
+                width: 100%;
+            }
+        }
+        .social-network-card {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 10px;
+            justify-content: space-between;
+
+            .card-icon {
+                margin-left: 0;
+            }
+        }
+    }
+}

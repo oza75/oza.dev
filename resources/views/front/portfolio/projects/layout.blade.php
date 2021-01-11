@@ -34,5 +34,6 @@
 <main class="page-main">
     @yield('content')
 </main>
+@include('front.portfolio.partials.footer')
 </body>
 </html>

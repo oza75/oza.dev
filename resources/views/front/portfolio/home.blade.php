@@ -38,7 +38,7 @@
         <h2 class="section-title fade" data-delay="1">Mes compétences</h2>
         <ul class="competence-cards flex align-center">
             <li class="competence-card-wrapper fade" data-delay="2">
-                <div class="competence-card red">
+                <div class="competence-card red ">
                     <img data-src="{{asset('assets/images/laravel.svg')}}" loading="lazy" alt="Laravel" class="icon">
                     <div class="card-title">Laravel</div>
                     <div class="card-desc">
@@ -48,7 +48,7 @@
                 </div>
             </li>
             <li class="competence-card-wrapper green fade" data-delay="3">
-                <div class="competence-card">
+                <div class="competence-card border-green">
                     <img loading="lazy" data-src="{{asset('assets/images/vuejs.png')}}" alt="VueJs" class="icon">
                     <div class="card-title">VueJs</div>
                     <div class="card-desc">
@@ -57,7 +57,7 @@
                 </div>
             </li>
             <li class="competence-card-wrapper yellow fade" data-delay="4">
-                <div class="competence-card">
+                <div class="competence-card border-red">
                     <img loading="lazy" data-src="{{asset('assets/images/angular.svg')}}" alt="Angular" class="icon">
                     <div class="card-title">Angular</div>
                     <div class="card-desc">
@@ -71,8 +71,8 @@
 
     <section class="container portfolio-section project-section fade">
         <div class="section-title fade" data-delay="1">Mes récentes réalisations</div>
-        <ul class="projects flex align-center" id="projects-slider">
-            <li class="project-card fade" data-delay="2">
+        <div class="projects flex align-center" id="projects-slider">
+            <div class="project-card fade" data-delay="2">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.png')}}"
                          class="project-img"
@@ -89,8 +89,8 @@
                         Happy closet est une plateforme de e-commerce spécialiser dans le domaine de la maternité.
                     </div>
                 </div>
-            </li>
-            <li class="project-card fade" data-delay="3">
+            </div>
+            <div class="project-card fade" data-delay="3">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/urbateur.png')}}" class="project-img"
                          alt="Urbateur">
@@ -98,15 +98,15 @@
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
                         <span class="project-title">Urbateur</span>
-                        <a href="" class="project-link">Détails</a>
+                        <a href="{{route('projects.urbateur')}}" rel="nofollow" class="project-link">Détails</a>
                     </div>
                     <div class="project-desc">Développement back-end et front-end de la plateforme Urbateur.
                         Urbateur est un réseau social mettant en relations les différents acteurs de l'artisanat et de
                         l'architecture.
                     </div>
                 </div>
-            </li>
-            <li class="project-card fade" data-delay="4">
+            </div>
+            <div class="project-card fade" data-delay="4">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/fink.ma.png')}}" class="project-img"
                          alt="Fink.ma">
@@ -114,14 +114,14 @@
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
                         <span class="project-title">Fink.ma</span>
-                        <a href="" class="project-link">Détails</a>
+                        <a href="{{route('projects.fink')}}" class="project-link">Détails</a>
                     </div>
                     <div class="project-desc">Développement back-end et front-end de Fink.ma. Fink.ma est un annuaire
                         marocain recensant les différentes entreprises au maroc.
                     </div>
                 </div>
-            </li>
-            <li class="project-card fade" data-delay="5">
+            </div>
+            <div class="project-card fade" data-delay="5">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/123bain.fr.png')}}"
                          class="project-img"
@@ -130,53 +130,15 @@
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
                         <span class="project-title">123Bain.fr</span>
-                        <a href="" class="project-link">Détails</a>
+                        <a href="{{route('projects.123bain')}}" class="project-link">Détails</a>
                     </div>
                     <div class="project-desc">Intégration du design de 123bain.fr. 123bain.fr est un site e-commerce de
                         vente d'équipement de salle de bain.
                     </div>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
         <div id="projects-sliders-dots"></div>
     </section>
-
-    <section class="container portfolio-section social-networks-section fade">
-        <div class="section-title fade" data-delay="1">Me retrouver</div>
-        <ul class="flex align-center social-network-cards">
-            <li>
-                <a href="https://github.com/oza75" target="_blank"
-                   class="social-network-card flex align-center github fade" data-delay="2">
-                    <div class="card-content">
-                        <div class="card-title">Github</div>
-                        <div class="card-link">github.com/oza75</div>
-                    </div>
-                    <img loading="lazy" data-src="{{asset('assets/images/github.svg')}}" class="card-icon" alt="Github"
-                         width="50" height="50">
-                </a>
-            </li>
-            <li>
-                <a href="https://twitter.com/oza_dev_" target="_blank"
-                   class="social-network-card flex align-center twitter fade" data-delay="3">
-                    <div class="card-content">
-                        <div class="card-title">Twitter</div>
-                        <div class="card-link">twitter.com/oza_dev_</div>
-                    </div>
-                    <img loading="lazy" data-src="{{asset('assets/images/twitter.svg')}}" class="card-icon"
-                         alt="Twitter" width="50" height="50">
-                </a>
-            </li>
-            <li>
-                <a href="https://www.facebook.com/mrOza.dev" target="_blank"
-                   class="social-network-card flex align-center facebook fade" data-delay="4">
-                    <div class="card-content">
-                        <div class="card-title">Facebook</div>
-                        <div class="card-link">facebook.com/mrOza.dev</div>
-                    </div>
-                    <img loading="lazy" data-src="{{asset('assets/images/facebook.svg')}}" class="card-icon"
-                         alt="Facebook" width="50" height="50">
-                </a>
-            </li>
-        </ul>
-    </section>
+    @include('front.portfolio.partials.footer')
 @endsection

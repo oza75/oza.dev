@@ -1,6 +1,7 @@
 @import "variables";
 @import "common";
 @import "portfolio_navbar";
+@import "portfolio_footer";
 
 .page-header {
     background-color: white;
@@ -77,5 +78,71 @@
         margin-top: 20px;
         width: 100%;
         justify-content: center;
+    }
+}
+
+.project-roles {
+    display: flex;
+    margin-bottom: 50px;
+
+    .project-role {
+        flex-basis: 100%;
+    }
+
+    .project-role-title {
+        font-family: $font-family-heading;
+        font-size: 20px;
+        //color: $primary-color;
+        margin-bottom: 16px;
+    }
+
+    .project-role-list {
+        li {
+            margin: 8px 0;
+            font-size: 16px;
+
+            &:before {
+                content: "- ";
+            }
+        }
+    }
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+        display: block;
+        .project-role {
+            margin-bottom: 50px;
+        }
+    }
+}
+
+.project-navigations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 35px;
+
+    .project-navigation {
+        &:nth-child(2) {
+            text-align: right;
+        }
+
+        .label {
+            font-size: 14px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-family: $font-family-heading;
+            color: black;
+            transition: color .3s;
+            font-size: 20px;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
     }
 }

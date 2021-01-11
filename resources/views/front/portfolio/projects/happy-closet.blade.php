@@ -1,9 +1,10 @@
 @extends('front.portfolio.projects.layout')
-@section('title', 'Projet Happy Closet | Portfolio Ouattara Zié Aboubacar')
+@section('title', 'Projet Happy Closet | Portfolio de Ouattara Zié Aboubacar')
 @section('seo')
     <meta name="description"
-          content="Projet Happy Closet réaliser par OUATTARA Zié Aboubacar, Développeur web full stack connu sous le nom de @oza">
-    <meta name="keywords" content="Développeur web, Développeur web full-stack, Développeur web à casablanca, Développeur web au maroc"/>
+          content="Projet Happy Closet réalisé par OUATTARA Zié Aboubacar, Développeur web full stack connu sous le nom de @oza">
+    <meta name="keywords"
+          content="Développeur web, Développeur web full-stack, Développeur web à casablanca, Développeur web au maroc"/>
 @endsection
 @section('content')
     <div class="container">
@@ -17,7 +18,7 @@
             <div class="flex align-center space-between project-columns fade" data-delay="2">
                 <div class="project-title no-mb">Développement front-end & back-end</div>
                 <div class="flex flex-end align-center mobile-flex-start">
-                    <a href="https://happycloset.ma" target="_blank"
+                    <a rel="noopener noreferrer" href="https://happycloset.ma" target="_blank"
                        class="btn btn-outline-primary btn-arrow visit-website-btn">
                         Voir le site
                         <svg width="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -121,6 +122,31 @@
                         href="https://github.com/oza75/laravel-hubble"><strong>oza75/laravel-hubble</strong> </a>est
                     disponible sur github et packagist.
                 </p>
+            </div>
+        </section>
+        <section class="project-roles">
+            <div class="project-role fade">
+                <h3 class="project-role-title">Roles</h3>
+                <ul class="project-role-list">
+                    <li>Chef du projet</li>
+                    <li>Développeur Back-end</li>
+                    <li>Développeur Front-end</li>
+                </ul>
+            </div>
+            <div class="project-role fade" data-delay="1">
+                <h3 class="project-role-title">Technologies</h3>
+                <ul class="project-role-list">
+                    <li>Laravel</li>
+                    <li>VueJs</li>
+                    <li>Socket.io</li>
+                </ul>
+            </div>
+        </section>
+        <section class="project-navigations fade" data-delay="1">
+            <div></div>
+            <div class="project-navigation">
+                <div class="label">Projet suivant</div>
+                <a href="{{route('projects.urbateur')}}" class="title">Urbateur</a>
             </div>
         </section>
     </div>
