@@ -3,7 +3,7 @@
 @import "portfolio_navbar";
 @import "glider";
 @import "portfolio_footer";
-
+@import "contact";
 .hero-section {
     //min-height: 70vh;
     padding-top: 20px;
@@ -230,9 +230,11 @@
         padding: 30px 15px;
         position: relative;
         z-index: 2;
+
         &.border-green {
             border-color: #009688;
         }
+
         &.border-red {
             border-color: red;
         }
@@ -257,7 +259,6 @@
             width: 100%;
             margin-bottom: 30px;
             margin-right: unset !important;
-            padding: 0 15px;
 
             &:before {
                 display: none;
@@ -374,7 +375,4 @@
         }
     }
 }
-
-
-
 

@@ -1,0 +1,19 @@
+[Unit]
+Description={{ domain }} Goaccess
+Documentation=https://github.com/oza75/nossaveurs.fr
+
+[Service]
+Type=simple
+RestartSec=1
+ExecStart=/usr/bin/goaccess -f /var/log/{{domain}}/access.log \
+          --real-time-html --ws-url=wss://{{ domain }}:443/goaccessws \
+          -o {{ ansistrano_deploy_to }}/current/public/report.html --port=7890 \
+          --config-file={{ ansistrano_deploy_to }}/current/tools/goaccess/goaccess.conf \
+          --origin=https://{{ domain }} \
+          --db-path=/var
+Restart=always
+ExecStop=/bin/kill -9 ${MAINPID}
+WorkingDirectory={{ ansistrano_deploy_to }}/current
+
+[Install]
+WantedBy=default.target

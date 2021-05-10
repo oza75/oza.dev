@@ -1,0 +1,23 @@
+---
+- name: "MEILISEARCH | Add mirrors"
+  become: yes
+  command:
+    cmd: 'echo "deb [trusted=yes] https://apt.fury.io/meilisearch/ /" > /etc/apt/sources.list.d/fury.list'
+    creates: /etc/apt/sources.list.d/fury.list
+- name: "MEILISEARCH | Install"
+  become: yes
+  apt:
+    update_cache: yes
+    state: present
+    name: "meilisearch-http"
+- name: "MEILISEARCH | Create service"
+  become: yes
+  template:
+    src: "service.j2"
+    dest: "/etc/systemd/system/meilisearch.service"
+- name: "MEILISEARCH | Start"
+  become: yes
+  systemd:
+    enabled: yes
+    name: meilisearch
+    state: started

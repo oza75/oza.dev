@@ -1,0 +1,24 @@
+---
+- name: "USER | Création de {{ user }}"
+  user:
+    name: "{{ user }}"
+    shell: /bin/bash
+
+- name: "USER | Clé SSH"
+  authorized_key:
+    user: "{{ user }}"
+    state: present
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+- name: "USER | Ajout de {{ user }} aux sudoers"
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^{{ user }}"
+    line: "{{ user }} ALL=(ALL) NOPASSWD:ALL"
+    validate: "visudo -cf %s"
+
+- name: "APT | Update & Upgrade"
+  apt:
+    update_cache: true
+    upgrade: dist

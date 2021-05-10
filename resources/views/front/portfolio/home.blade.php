@@ -1,5 +1,12 @@
 @extends('layouts.portfolio')
-
+@section('seo')
+    <meta name="description" content="Développeur web full-stack à casablanca au maroc">
+    <meta name="keywords"
+          content="Développeur de site web, Développeur web, Développeur front-end, Développeur back-end, Développeur maroc, Développeur Casablanca">
+@endsection
+@section('styles')
+    <link href="{{ mix('css/portfolio.css', 'assets') }}" rel="stylesheet">
+@endsection()
 @section('content')
     <section class="container portfolio-section hero-section flex align-center ">
         <div class="hero-image-wrapper fade ">
@@ -19,7 +26,7 @@
             <div class="hero-desc fade " data-delay="2">
                 <p>Je suis développeur web full stack basé au maroc.</p>
                 <p>
-                    Je suis spécialisé dans la création de site web de type boutique en ligne, site d'annonces ou encore
+                    Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonces ou encore
                     des sites vitrines.
                     J'interviens dans le développement back-end et du front-end et j'apprécie créer des applications de
                     type SPA avec une API Rest.
@@ -28,8 +35,8 @@
                     contacter pour discuter de votre projet d'application web ! </p>
             </div>
             <div class="hero-actions flex align-center fade " data-delay="3">
-                <a href="" class="btn btn-primary">Me contacter</a>
-                <a href="" class="btn btn-outline-primary">Questions</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary">Obtenir un devis</a>
+                <a href="{{route('portfolio.contact')}}#faq" class="btn btn-outline-primary">Questions</a>
             </div>
         </div>
     </section>
@@ -39,6 +46,7 @@
         <ul class="competence-cards flex align-center">
             <li class="competence-card-wrapper fade" data-delay="2">
                 <div class="competence-card red ">
+
                     <img data-src="{{asset('assets/images/laravel.svg')}}" loading="lazy" alt="Laravel" class="icon">
                     <div class="card-title">Laravel</div>
                     <div class="card-desc">
@@ -74,9 +82,13 @@
         <div class="projects flex align-center" id="projects-slider">
             <div class="project-card fade" data-delay="2">
                 <div class="project-img-wrapper">
-                    <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.png')}}"
-                         class="project-img"
-                         alt="Happy closet">
+                    <picture>
+                        <source srcset="{{asset('assets/images/projects/happy-closet.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/happy-closet.png')}}" type="image/png">
+                        <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.webp')}}"
+                             class="project-img"
+                             alt="Happy closet">
+                    </picture>
                 </div>
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
@@ -92,8 +104,13 @@
             </div>
             <div class="project-card fade" data-delay="3">
                 <div class="project-img-wrapper">
-                    <img loading="lazy" data-src="{{asset('assets/images/projects/urbateur.png')}}" class="project-img"
-                         alt="Urbateur">
+                    <picture>
+                        <source srcset="{{asset('assets/images/projects/urbateur.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/urbateur.png')}}" type="image/png">
+                        <img loading="lazy" data-src="{{asset('assets/images/projects/urbateur.webp')}}"
+                             class="project-img"
+                             alt="Urbateur">
+                    </picture>
                 </div>
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
@@ -108,8 +125,13 @@
             </div>
             <div class="project-card fade" data-delay="4">
                 <div class="project-img-wrapper">
-                    <img loading="lazy" data-src="{{asset('assets/images/projects/fink.ma.png')}}" class="project-img"
-                         alt="Fink.ma">
+                    <picture>
+                        <source srcset="{{asset('assets/images/projects/fink.ma.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/fink.ma.webp')}}" type="image/png">
+                        <img loading="lazy" data-src="{{asset('assets/images/projects/fink.ma.png')}}"
+                             class="project-img"
+                             alt="Fink.ma">
+                    </picture>
                 </div>
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">
@@ -123,9 +145,13 @@
             </div>
             <div class="project-card fade" data-delay="5">
                 <div class="project-img-wrapper">
-                    <img loading="lazy" data-src="{{asset('assets/images/projects/123bain.fr.png')}}"
-                         class="project-img"
-                         alt="123Bain.fr">
+                    <picture>
+                        <source srcset="{{asset('assets/images/projects/123bain.fr.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/123bain.fr.png')}}" type="image/png">
+                        <img loading="lazy" data-src="{{asset('assets/images/projects/123bain.fr.webp')}}"
+                             class="project-img"
+                             alt="123Bain.fr">
+                    </picture>
                 </div>
                 <div class="project-details">
                     <div class=" flex align-center space-between project-header">

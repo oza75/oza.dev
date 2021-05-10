@@ -37,7 +37,8 @@ const projetSlider = () => {
     });
 };
 const heroBg = () => {
-    if (!isMobile()) return;
+    const el = document.querySelector('.hero-image-wrapper');
+    if (!isMobile() || !el) return;
     import('css-paint-polyfill').then(mod => {
         CSS.paintWorklet.addModule('https://unpkg.com/bytemare@0.1.0/bytemare.js');
     })

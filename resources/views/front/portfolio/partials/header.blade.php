@@ -9,8 +9,8 @@
                 <a href="{{route('projects.index')}}">Mes réalisations</a>
             </li>
             <li>
-                <a href="" class="btn btn-primary hide-on-mobile">Me contacter</a>
-                <a href="" class="btn btn-primary hide-on-desktop">Contact</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-mobile">Obtenir un devis</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Contact</a>
             </li>
         </ul>
     </nav>

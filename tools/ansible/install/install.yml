@@ -1,0 +1,45 @@
+---
+- name: Installation du serveur
+  hosts: web
+  remote_user: ubuntu
+  become: yes
+  tasks:
+    - include_vars:
+        file: ../vars.yml
+    - name: "USER | Creation de {{ user }}"
+      user:
+        name: "{{ user }}"
+        group: "root"
+        shell: /bin/bash
+    - name: USER | Clef SSH
+      authorized_key:
+        user: "{{ user }}"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    - name: "USER | Sudoers {{ user }}"
+      become_user: root
+      become: yes
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: "^{{ user }}"
+        line: '{{ user }} ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+    - name: APT | Update & Upgrade
+      apt:
+        upgrade: dist
+        update_cache: yes
+    - apt:
+        name: redis-server
+        state: present
+  roles:
+    - { role: tools, tags: tools}
+    - { role: docker, tags: docker, when: docker }
+    - { role: firewall, tags: firewall}
+    - { role: php, tags: php, when: not docker }
+    - { role: mysql, tags: mysql, when: not docker }
+    - { role: nginx, tags: nginx }
+    - { role: nodejs, tags: nodejs, when: not docker }
+#    - { role: typesense, tags: typesense, when: not docker }
+#    - { role: meilisearch, tags: meilisearch, when: not docker }
+#    - { role: stats, tags: stats, when: not docker }

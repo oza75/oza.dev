@@ -1,0 +1,44 @@
+---
+- name: "UFW | Installation"
+  apt:
+    name: ufw
+    state: present
+
+- name: "Firewall | Policy"
+  ufw:
+    direction: "{{ item.direction }}"
+    policy: "{{ item.policy }}"
+  with_items:
+    - { direction: incoming, policy: deny }
+    - { direction: outgoing, policy: allow }
+
+- name: "Firewall | SSH"
+  ufw:
+    rule: allow
+    port: ssh
+
+- name: "Firewall | http & https"
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+  with_items:
+    - https
+    - http
+
+- name: "Firewall | smtp & dovecot & pop3 & imap"
+  ufw:
+    rule: allow
+    port: "{{ item }}"
+  with_items:
+    - "4190"
+    - "995"
+    - "110"
+    - "993"
+    - "143"
+    - "587"
+    - "465"
+    - "25"
+
+- name: "Firewall | Activation"
+  ufw:
+    state: enabled

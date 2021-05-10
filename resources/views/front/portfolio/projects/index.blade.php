@@ -6,6 +6,9 @@
     <meta name="keywords"
           content="Développeur web, Développeur web full-stack, Développeur web à casablanca, Développeur web au maroc"/>
 @endsection
+@section('styles')
+    <link href="{{ mix('css/portfolio.css', 'assets') }}" rel="stylesheet">
+@endsection()
 @section('content')
     <div class="container realisations">
         <div class="project-header">

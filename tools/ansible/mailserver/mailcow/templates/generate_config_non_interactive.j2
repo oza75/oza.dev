@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+MAILCOW_HOSTNAME={{ mailcow_domain_name }}
+MAILCOW_TZ={{ mailcow_tz }}
+SKIP_CLAMD={{ mailcow_skip_clamd }}
+SKIP_SOLR={{ mailcow_skip_solr }}
+
+[ ! -f ./data/conf/rspamd/override.d/worker-controller-password.inc ] && echo '# Placeholder' > ./data/conf/rspamd/override.d/worker-controller-password.inc

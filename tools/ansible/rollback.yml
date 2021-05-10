@@ -1,0 +1,10 @@
+---
+- name: Roolback
+  hosts: web
+  remote_user: "{{ user }}"
+  become: yes
+  tasks:
+  - include_vars:
+      file: vars.yml
+  - include_role:
+      name: ansistrano.rollback

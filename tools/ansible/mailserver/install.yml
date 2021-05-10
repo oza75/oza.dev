@@ -1,0 +1,11 @@
+---
+- name: "Installation de MAILCOW"
+  hosts: mailserver
+  remote_user: ubuntu
+  become_user: root
+  become: yes
+  tasks:
+    - include_role:
+        name: configure-server
+    - include_role:
+        name: mailcow

@@ -1,0 +1,67 @@
+---
+- name: TOOLS | fish + vim + git
+  apt:
+    name:
+      - fish
+      - vim
+      - git
+      - ntp
+      - python3-pip
+      - python3-mysqldb
+    state: present
+- name: Outils | Timezone
+  community.general.timezone:
+    name: Africa/Abidjan
+- name: Outils | Locale française
+  community.general.locale_gen:
+    name: fr_FR.UTF-8
+    state: present
+- name: Outils | Requis
+  apt:
+    name:
+      - gnupg
+      - curl
+    state: present
+- name: Outils | Fish GPG Key
+  when: ansible_distribution == 'Debian'
+  apt_key:
+    url: https://download.opensuse.org/repositories/shells:fish:release:3/Debian_{{ ansible_distribution_major_version }}/Release.key
+- name: Outils | Fish repository
+  when: ansible_distribution == 'Debian'
+  apt_repository:
+    repo: deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_{{ ansible_distribution_major_version }}/ /
+    state: present
+- name: Outils | Fish ppa
+  when: ansible_distribution == 'Ubuntu'
+  become_user: root
+  become: yes
+  apt_repository:
+    repo: ppa:fish-shell/release-3
+    state: present
+- name: Outils | Install
+  become_user: root
+  become: true
+  apt:
+    name:
+      - fish
+      - git
+      - ntp
+      - make
+      - rsync
+      - fail2ban
+      - certbot
+      - acl
+      - software-properties-common
+      - supervisor
+    state: present
+- name: Outils | Passage sur fish
+  become_user: root
+  become: yes
+  user:
+    name: "{{ user }}"
+    shell: /usr/bin/fish
+- name: Supervisor | start
+  systemd:
+    enabled: true
+    name: supervisor
+    state: started

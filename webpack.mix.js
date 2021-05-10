@@ -23,14 +23,15 @@ mix.setPublicPath('public/assets');
 mix.webpackConfig({output: {publicPath: '/assets/', chunkFilename: "[name].js"}});
 
 mix.sass('resources/scss/portfolio.scss', 'public/assets/css')
-    .sass('resources/scss/project.scss', 'public/assets/css');
+    .sass('resources/scss/project.scss', 'public/assets/css')
+    .sass('resources/scss/contact.scss', 'public/assets/css')
+    .js('resources/js/portfolio.js', 'public/assets/js/portfolio-nomodule.js')
+    .js('resources/js/project.js', 'public/assets/js/project-nomodule.js');
 
 if (mix.inProduction()) {
     mix.webpackConfig({output: {publicPath: '/assets/', chunkFilename: '[name].[contenthash].js'}});
-    mix
-        .js('resources/js/portfolio.js', 'public/assets/js/portfolio-nomodule.js')
-        .js('resources/js/project.js', 'public/assets/js/project-nomodule.js');
 }
+
 if (mix.inProduction()) {
     mix.version();
     mix.then(() => {

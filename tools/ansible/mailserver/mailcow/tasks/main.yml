@@ -1,0 +1,9 @@
+---
+- name: MAILCOW | Installation du Docker
+  include_tasks: docker-installation.yml
+
+- name: MAILCOW | Installation de mailcow
+  include_tasks: install-mailcow.yml
+
+- name: MAILCOW | Firewall
+  include_tasks: firewall.yml

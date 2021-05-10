@@ -1,0 +1,92 @@
+# ------------------------------
+# mailcow web ui configuration
+# ------------------------------
+# example.org is _not_ a valid hostname, use a fqdn here.
+# Default admin user is "admin"
+# Default password is "moohoo"
+MAILCOW_HOSTNAME={{ mailcow_domain_name }}
+
+# ------------------------------
+# SQL database configuration
+# ------------------------------
+DBNAME={{ mailcow_db_name }}
+DBUSER={{ mailcow_db_user }}
+
+# Please use long, random alphanumeric strings (A-Za-z0-9)
+DBPASS=$(LC_ALL=C </dev/urandom tr -dc A-Za-z0-9 | head -c 28)
+DBROOT=$(LC_ALL=C </dev/urandom tr -dc A-Za-z0-9 | head -c 28)
+
+# ------------------------------
+# HTTP/S Bindings
+# ------------------------------
+
+# You should use HTTPS, but in case of SSL offloaded reverse proxies:
+HTTP_PORT={{ mailcow_http_port }}
+HTTP_BIND=0.0.0.0
+
+HTTPS_PORT={{ mailcow_https_port }}
+HTTPS_BIND=0.0.0.0
+
+# ------------------------------
+# Other bindings
+# ------------------------------
+# You should leave that alone
+# Format: 11.22.33.44:25 or 0.0.0.0:465 etc.
+# Do _not_ use IP:PORT in HTTP(S)_BIND or HTTP(S)_PORT
+
+SMTP_PORT=25
+SMTPS_PORT=465
+SUBMISSION_PORT=587
+IMAP_PORT=143
+IMAPS_PORT=993
+POP_PORT=110
+POPS_PORT=995
+SIEVE_PORT=4190
+DOVEADM_PORT=127.0.0.1:19991
+SQL_PORT=127.0.0.1:13306
+
+# Your timezone
+TZ={{ mailcow_tz }}
+
+# Fixed project name
+COMPOSE_PROJECT_NAME=mailcowdockerized
+
+# Additional SAN for the certificate
+{% if mailcow_additional_san is defined %}
+ADDITIONAL_SAN={{ mailcow_additional_san }}
+{% else %}
+ADDITIONAL_SAN=
+{% endif %}
+
+
+# Skip running ACME (acme-mailcow, Let's Encrypt certs) - y/n
+SKIP_LETS_ENCRYPT=n
+
+# Skip IPv4 check in ACME container - y/n
+SKIP_IP_CHECK=n
+
+# Skip ClamAV (clamd-mailcow) anti-virus (Rspamd will auto-detect a missing ClamAV container) - y/n
+SKIP_CLAMD={{ mailcow_skip_clamd }}
+
+# Enable watchdog (watchdog-mailcow) to restart unhealthy containers (experimental)
+USE_WATCHDOG=n
+# Send notifications by mail (no DKIM signature, sent from watchdog@MAILCOW_HOSTNAME)
+#WATCHDOG_NOTIFY_EMAIL=
+
+# Max log lines per service to keep in Redis logs
+LOG_LINES=9999
+
+# Internal IPv4 /24 subnet, format n.n.n. (expands to n.n.n.0/24)
+IPV4_NETWORK=172.22.1
+
+# Internal IPv6 subnet in fc00::/7
+IPV6_NETWORK=fd4d:6169:6c63:6f77::/64
+
+# Use this IP for outgoing connections (SNAT)' >> mailcow.conf
+#SNAT_TO_SOURCE=" >> mailcow.conf
+
+# Disable IPv6
+# mailcow-network will still be created as IPv6 enabled, all containers will be created
+# without IPv6 support.
+# Use 1 for disabled, 0 for enabled
+SYSCTL_IPV6_DISABLED=0

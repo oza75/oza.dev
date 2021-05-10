@@ -1,0 +1,68 @@
+---
+- name: "MAILCOW | Clone du dépôt git"
+  git:
+    repo: https://github.com/mailcow/mailcow-dockerized
+    version: master
+    dest: "{{ mailcow_install_dir }}"
+    clone: yes
+    update: yes
+    force: yes
+
+- name: "MAILCOW | Copie du fichier generate_config_non_interactive"
+  template:
+    src: templates/generate_config_non_interactive.j2
+    dest: "{{ mailcow_install_dir }}/generate_config_non_interactive.sh"
+    mode: a+x
+
+- name: "MAILCOW | Copie du fichier de configuration"
+  template:
+    src: templates/mailcow.j2
+    dest: /opt/mailcow-dockerized/mailcow.conf
+    owner: root
+    group: root
+    mode: '0400'
+
+- name: "MAILCOW | Creation du nouveau script de generation de la config"
+  shell:
+    cmd: cat generate_config.sh | sed -n -e '/cat << EOF > mailcow.conf/,$p' >> generate_config_non_interactive.sh
+    executable: /bin/bash
+    chdir: "{{ mailcow_install_dir }}"
+
+- name: "MAILCOW | Création du dossier de sauvegarde"
+  file:
+    path: /var/backup
+    mode: '0777'  # required by the mailcow backup script
+    state: directory
+    owner: root
+    group: root
+
+- name: "MAILCOW | Activation de la sauvegarde"
+  cron:
+    name: generate mailcow backup
+    job: 'export BACKUP_LOCATION=/var/backup && /opt/mailcow-dockerized/helper-scripts/backup_and_restore.sh backup all'
+    special_time: "{{mailcow_backup_time}}"
+    state: present
+
+- name: "MAILCOW | Génération du fichier du configuration"
+  shell:
+    cmd: ./generate_config_non_interactive.sh
+    creates: "{{ mailcow_install_dir }}/mailcow.conf.created"
+    chdir: "{{ mailcow_install_dir }}"
+    executable: /bin/bash
+
+- name: "MAILCOW | Validation la génération du ficher de configuration"
+  file:
+    path: "{{ mailcow_install_dir }}/mailcow.conf.created"
+    state: touch
+
+- name: "MAILCOW | Docker pull"
+  shell:
+    cmd: docker-compose pull
+    chdir: "{{ mailcow_install_dir }}"
+    executable: /bin/bash
+
+- name: "MAILCOW | START"
+  shell:
+    cmd: docker-compose up -d
+    executable: /bin/bash
+    chdir: "{{ mailcow_install_dir }}"

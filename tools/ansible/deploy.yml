@@ -1,0 +1,7 @@
+---
+- name: Deploiement
+  hosts: web
+  remote_user: "{{ user }}"
+  tasks:
+  - include_role:
+      name: ansistrano.deploy

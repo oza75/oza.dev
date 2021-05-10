@@ -1,0 +1,18 @@
+---
+mailcow_install_dir: /opt/mailcow-dockerized
+mailcow_db_name: mailcow
+mailcow_db_user: mailcow
+mailcow_dbpass: pass
+mailcow_dbroot: pass
+mailcow_http_port: 80
+mailcow_http_bind: 0.0.0.0
+mailcow_https_port: 443
+mailcow_https_bind: 0.0.0.0
+mailcow_tz: UTC
+mailcow_skip_le: n
+mailcow_skip_clamd: n
+mailcow_skip_solr: n
+mailcow_ntp_servers: '0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org'
+mailcow_skip_known_hosts: false
+mailcow_enable_backups: true
+mailcow_backup_time: daily

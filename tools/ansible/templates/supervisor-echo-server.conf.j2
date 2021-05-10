@@ -1,0 +1,11 @@
+[program:{{domain_name}}-echo-server-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=/home/ubuntu/.yarn/bin/laravel-echo-server start
+autostart=true
+autorestart=true
+directory={{ansistrano_deploy_to}}/current
+user=root
+numprocs=1
+redirect_stderr=true
+stdout_logfile=/var/log/{{domain}}/echo-server.log
+stopwaitsecs=3600

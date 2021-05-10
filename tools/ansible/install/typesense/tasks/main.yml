@@ -1,0 +1,14 @@
+---
+- name: TYPESENSE | CHECK IF ALREADY DOWNLOADED
+  stat:
+    path: /home/{{user}}/typesense-server-{{typesense_version}}-amd64.deb
+  register: typesense_stats
+- name: TYPSENSE | DOWNLOAD
+  get_url:
+    url: https://dl.typesense.org/releases/{{typesense_version}}/typesense-server-{{typesense_version}}-amd64.deb
+    dest: /home/{{user}}/
+  when: not typesense_stats.stat.exists
+- name: TYPESENSE | INSTALL
+  apt:
+    deb: "/home/{{user}}/typesense-server-{{typesense_version}}-amd64.deb"
+    state: present

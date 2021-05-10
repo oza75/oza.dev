@@ -1,0 +1,77 @@
+---
+- name: "DOCKER | Installation des packages prérequis pour docker et docker-compose"
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg2
+      - software-properties-common
+      - python3-pip
+      - fish
+      - git
+
+- name: "Verification de DOCKER"
+  stat:
+    path: "/home/{{ user }}/docker-installed"
+  register: docker_installed_stat
+
+- name: "DOCKER | Suppression des anciennes versions de docker"
+  apt:
+    name: "{{ packages }}"
+    state: absent
+    autoremove: yes
+    purge: yes
+  vars:
+    packages:
+      - docker
+      - docker-engine
+      - docker.io
+  when: not docker_installed_stat.stat.exists
+
+- name: "DOCKER | Installation"
+  block:
+    - name: "DOCKER | Téléchargement du script d'installation"
+      get_url:
+        url: https://get.docker.com
+        dest: "/home/{{user}}/get-docker.sh"
+
+    - name: "DOCKER | Installation"
+      shell:
+        cmd: CHANNEL=stable sh ./get-docker.sh
+        chdir: "/home/{{ user }}"
+
+    - name: "DOCKER | Installation Terminé"
+      file:
+        path: "/home/{{ user }}/docker-installed"
+        state: touch
+
+  when: not docker_installed_stat.stat.exists
+
+- name: "DOCKER | Démarrage du service docker"
+  systemd:
+    name: docker
+    enabled: true
+    state: started
+
+- name: "DOCKER-COMPOSE | Vérification de l'installation"
+  stat:
+    path: /usr/bin/docker-compose
+  register: docker_compose_stat
+
+- name: "DOCKER-COMPOSE | Installation"
+  block:
+    - name: "DOCKER-COMPOSE | Téléchargement"
+      shell:
+        cmd: curl -L https://github.com/docker/compose/releases/download/$(curl -Ls https://www.servercow.de/docker-compose/latest.php)/docker-compose-$(uname -s)-$(uname -m) > /usr/bin/docker-compose
+        warn: false
+
+    - name: "DOCKER-COMPOSE | Validation installation"
+      file:
+        path: /usr/bin/docker-compose
+        mode: 0751
+
+  when: not docker_compose_stat.stat.exists
