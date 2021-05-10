@@ -36,7 +36,7 @@
             </div>
             <div class="hero-actions flex align-center fade " data-delay="3">
                 <a href="{{route('portfolio.contact')}}" class="btn btn-primary">Obtenir un devis</a>
-                <a href="{{route('portfolio.contact')}}#faq" class="btn btn-outline-primary">Questions</a>
+                <a href="{{route('portfolio.contact')}}#faq" class="btn btn-outline-primary">Questions fréquentes</a>
             </div>
         </div>
     </section>
