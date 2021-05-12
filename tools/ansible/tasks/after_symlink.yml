@@ -1,11 +1,11 @@
-- name: LARAVEL | Yarn
-  command: yarn
-  args:
-    chdir: "{{ ansistrano_release_path.stdout }}"
-- name: LARAVEL | build assets
-  command: yarn prod
-  args:
-    chdir: "{{ ansistrano_release_path.stdout }}"
+#- name: LARAVEL | Yarn
+#  command: yarn
+#  args:
+#    chdir: "{{ ansistrano_release_path.stdout }}"
+#- name: LARAVEL | build assets
+#  command: yarn prod
+#  args:
+#    chdir: "{{ ansistrano_release_path.stdout }}"
 
 #- name: LARAVEL | build hubble assets
 #  command: "yarn hubble:prod"
