@@ -45,13 +45,15 @@ provision: ## Configure la machine distante
 .PHONY: lint
 lint: ./vendor/bin/phpstan phpstan.neon ## Lance phpstan pour l'analyse static que code
 	./vendor/bin/phpstan analyse --memory-limit=2G
-
+.PHONY: build-assets
+ build-assets:
+	$(sail) yarn prod
 .PHONY: deploy
-deploy: test lint push  ## Déploiement sur le serveur
+deploy: test lint build-assets push  ## Déploiement sur le serveur
 	ansible-playbook --vault-password-file tools/ansible/.vault_pass -i tools/ansible/hosts.yml tools/ansible/deploy.yml
 
 .PHONY: just-deploy
-just-deploy: push
+just-deploy: build-assets push
 	ansible-playbook --vault-password-file tools/ansible/.vault_pass -i tools/ansible/hosts.yml tools/ansible/deploy.yml
 
 .PHONY: sprite
