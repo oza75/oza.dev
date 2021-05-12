@@ -25,6 +25,7 @@ Route::view('/projects/nossaveurs', 'front.portfolio.projects.nossaveurs')->name
 Route::view('/réalisations', 'front.portfolio.projects.index')->name('projects.index');
 Route::view('/contacts', 'front.portfolio.contact')->name('portfolio.contact');
 
+
 Route::post('/contacts', [SiteController::class, 'saveContact'])->name('contact.store');
 Route::post('/meeting', [SiteController::class, 'saveMeeting'])->name('meeting.store');
 
