@@ -38,7 +38,8 @@
         "rollup-plugin-scss": "^2.6.1",
         "rollup-plugin-terser": "^7.0.2",
         "sass": "^1.32.0",
-        "sass-loader": "8.*"
+        "sass-loader": "8.*",
+        "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
         "bytemare": "^0.1.0",
