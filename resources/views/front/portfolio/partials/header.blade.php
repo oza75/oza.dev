@@ -6,11 +6,12 @@
         </a>
         <ul class="flex align-center navbar-links">
             <li>
-                <a href="{{route('projects.index')}}">Mes réalisations</a>
+                <a href="{{route('projects.index')}}" class="hide-on-mobile">Mes réalisations</a>
+                <a href="{{route('projects.index')}}" class="hide-on-desktop">Réalisations</a>
             </li>
             <li>
                 <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-mobile">Obtenir un devis</a>
-                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Obtenir un devis</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Devis</a>
             </li>
         </ul>
     </nav>
