@@ -96,8 +96,9 @@ server {
     } # managed by Certbot
 
     if ($host = {{domain}}) {
-         return 301 https://$host$request_uri;
+        return 301 https://$host$request_uri;
     } # managed by Certbot
 
     return 404; # managed by Certbot
+
 }

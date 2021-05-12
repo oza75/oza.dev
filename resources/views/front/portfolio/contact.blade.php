@@ -9,41 +9,71 @@
 @endsection()
 @section('body-classes', 'contact-page')
 @section('content')
+    <?php $optionTypes = \App\Models\Contact::$types ?>
     <section class="container contact-container">
-        <div class="contact-header">
-            <p class="contact-header-label fade">Obtenir un devis</p>
-            <h1 class="contact-header-title fade" data-delay="1">Me contacter</h1>
-            <p class="contact-header-desc fade" data-delay="2">Merci de donner un maximum de détail sur le projet afin
-                que je puisse évaluer
-                correctement la charge de travail que représente votre projet. Cela permettra aussi d'avoir un premier
-                chiffrage au plus prêt du devis final.
-            </p>
+        <div class="contact-form-wrapper">
+            <div class="contact-header">
+                <p class="contact-header-label fade">Obtenir un devis</p>
+                <h1 class="contact-header-title fade" data-delay="2">Obtenez gratuitement un devis</h1>
+                <p class="contact-header-desc fade" data-delay="3">Merci de donner quelques détails sur votre projet
+                    afin d'obtenir un devis gratuitement. Plus vos informations seront précises plus votre devis sera
+                    réaliste. <span class="hide-on-desktop">Vous pouvez aussi <a
+                            href="#rdv">planifier un rendez-vous</a> sur Google Meet pour discuter de votre projet en visio.</span>
+                </p>
+            </div>
+            @if(session('success') == 'contact')
+                <div class="alert alert-success contact-form fade" data-delay="3">
+                    Votre demande de devis a été bien reçu. Nous allons vous répondre bientôt !
+                </div>
+            @else
+                <form action="{{route('contact.store')}}" method="post" class="contact-form fade" data-delay="3">
+                    @csrf
+                    <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
+                        <x-input name="full_name" required minlength="30" label="Votre nom et prénom" placeholder="Nom et prénom"></x-input>
+                        <x-input name="email" type="email" required  label="Votre Email" placeholder="Votre adresse email"></x-input>
+                    </div>
+                    <x-select name="site_type" required id="type" label="Sélectionner un type" :options="$optionTypes"></x-select>
+                    <x-textarea name="description" required label="Description" placeholder="Description de votre projet" rows="10" minlength="30"></x-textarea>
+                    <button type="submit" class="btn btn-primary mobile-full">Envoyer</button>
+                </form>
+            @endif
         </div>
-        <form action="" class="contact-form fade" data-delay="3">
-            <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
-                <div class="form-group">
-                    <label for="full_name">Nom et prénom</label>
-                    <input type="text" name="full_name" class="form-input" id="full_name" placeholder="Nom et prénom">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" class="form-input" id="email" placeholder="Votre adresse email">
-                </div>
+        <div>
+            <div class="contact-header" id="rdv">
+                <p class="contact-header-label fade">Prendre un rendez-vous</p>
+                <h1 class="contact-header-title fade" data-delay="2">Planifier un rendez-vous</h1>
+                <p class="contact-header-desc fade" data-delay="3">
+                    Organiser une réunion sur Google Meet pour parler de votre projet plus en profondeur.
+                </p>
             </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea rows="10" class="form-input" name="description" id="description"
-                          placeholder="Description de votre projet"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mobile-full">Envoyer</button>
-        </form>
+            @if(session('success') == 'meeting')
+                <div class="alert alert-success contact-form fade" data-delay="4">
+                    Votre demande de rendez-vous a été prise en compte. Vous recevrez très vite un mail pour vous
+                    confirmer le rendez-vous.
+                </div>
+            @else
+                <form action="{{route('meeting.store')}}" method="post" class="contact-form fade" data-delay="4">
+                    @csrf
+                    <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
+                        <x-input name="full_name_rdv" id="full_name_rdv" required minlength="30" label="Votre nom et prénom" placeholder="Nom et prénom"></x-input>
+                        <x-input name="email_rdv" id="email_rdv" type="email" required  label="Votre Email" placeholder="Votre adresse email"></x-input>
+                    </div>
+                    <x-select name="site_type_rdv" required id="type_rdv" label="Sélectionner un type" :options="$optionTypes"></x-select>
+                    <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
+                        <x-input name="date" label="Sélectionner une date"  required min="{{now()->toDateString()}}" placeholder="Sélectionner une date" type="date"></x-input>
+                        <x-input name="time"  label="Sélectionner une heure" required placeholder="Sélectionner une heure" type="time"></x-input>
+                    </div>
+                    <button type="submit" class="btn btn-primary mobile-full">Planifier</button>
+                </form>
+            @endif
+        </div>
     </section>
     <section class="container faq-container " id="faq">
-        <div class="faq-header " >
+        <div class="faq-header ">
             <p class="faq-label fade">FAQ</p>
             <h2 class="faq-title fade" data-delay="1">Les questions <br class="hide-on-mobile">fréquentes</h2>
         </div>
-        <ul class="faq-questions" >
+        <ul class="faq-questions">
             <li class="faq-question fade" data-delay="2">
                 <div class="faq-question-title">Quels sont vos disponibilités ?</div>
                 <p class="faq-question-desc">
@@ -70,7 +100,8 @@
                 <div class="faq-question-title">Faites-vous la partie design des projets ?</div>
                 <p class="faq-question-desc">
                     Je ne suis malheureusement pas en capacité d'effectuer le design d'une application aussi il sera
-                    nécessaire de fournir le design si la mission le nécessite. <strong>Je vous invite à contacter un graphiste.</strong>
+                    nécessaire de fournir le design si la mission le nécessite. <strong>Je vous invite à contacter un
+                        graphiste.</strong>
                 </p>
             </li>
         </ul>

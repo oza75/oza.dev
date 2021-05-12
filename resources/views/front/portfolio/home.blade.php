@@ -83,6 +83,27 @@
             <div class="project-card fade" data-delay="2">
                 <div class="project-img-wrapper">
                     <picture>
+                        <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.png')}}" type="image/png">
+                        <img loading="lazy" data-src="{{asset('assets/images/projects/nossaveurs/nossaveurs.png')}}"
+                             class="project-img"
+                             alt="Nossaveurs">
+                    </picture>
+                </div>
+                <div class="project-details">
+                    <div class=" flex align-center space-between project-header">
+                        <span class="project-title">Nossaveurs.fr</span>
+                        <a href="{{route('projects.nossaveurs')}}" rel="nofollow" class="project-link">Détails</a>
+                    </div>
+                    <div class="project-desc">
+                        Chef de projet, développeur back-end et front-end pour la plateforme nossaveurs.fr.
+                        nossaveurs.fr est un site web d'annonce de produits alimentaires.
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade" data-delay="3">
+                <div class="project-img-wrapper">
+                    <picture>
                         <source srcset="{{asset('assets/images/projects/happy-closet.webp')}}" type="image/webp">
                         <source srcset="{{asset('assets/images/projects/happy-closet.png')}}" type="image/png">
                         <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.webp')}}"
@@ -96,13 +117,13 @@
                         <a href="{{route('projects.happy-closet')}}" rel="nofollow" class="project-link">Détails</a>
                     </div>
                     <div class="project-desc">
-                        Chef de projet, développement back-end et front-end avec le responsive de la plateforme Happy
+                        Chef de projet, développeur back-end et front-end pour la plateforme Happy
                         closet.
                         Happy closet est une plateforme de e-commerce spécialiser dans le domaine de la maternité.
                     </div>
                 </div>
             </div>
-            <div class="project-card fade" data-delay="3">
+            <div class="project-card fade" data-delay="4">
                 <div class="project-img-wrapper">
                     <picture>
                         <source srcset="{{asset('assets/images/projects/urbateur.webp')}}" type="image/webp">
@@ -123,11 +144,11 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card fade" data-delay="4">
+            <div class="project-card fade" data-delay="5">
                 <div class="project-img-wrapper">
                     <picture>
                         <source srcset="{{asset('assets/images/projects/fink.ma.webp')}}" type="image/webp">
-                        <source srcset="{{asset('assets/images/projects/fink.ma.webp')}}" type="image/png">
+                        <source srcset="{{asset('assets/images/projects/fink.ma.png')}}" type="image/png">
                         <img loading="lazy" data-src="{{asset('assets/images/projects/fink.ma.png')}}"
                              class="project-img"
                              alt="Fink.ma">
@@ -143,7 +164,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card fade" data-delay="5">
+            <div class="project-card fade" data-delay="6">
                 <div class="project-img-wrapper">
                     <picture>
                         <source srcset="{{asset('assets/images/projects/123bain.fr.webp')}}" type="image/webp">

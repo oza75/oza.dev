@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,11 @@ Route::view('/projects/happy-closet', 'front.portfolio.projects.happy-closet')->
 Route::view('/projects/urbateur', 'front.portfolio.projects.urbateur')->name('projects.urbateur');
 Route::view('/projects/fink-ma', 'front.portfolio.projects.fink')->name('projects.fink');
 Route::view('/projects/123-bain', 'front.portfolio.projects.123bain')->name('projects.123bain');
+Route::view('/projects/nossaveurs', 'front.portfolio.projects.nossaveurs')->name('projects.nossaveurs');
 Route::view('/réalisations', 'front.portfolio.projects.index')->name('projects.index');
 Route::view('/contacts', 'front.portfolio.contact')->name('portfolio.contact');
+
+Route::post('/contacts', [SiteController::class, 'saveContact'])->name('contact.store');
+Route::post('/meeting', [SiteController::class, 'saveMeeting'])->name('meeting.store');
+
 Auth::routes();

@@ -16,6 +16,11 @@
     @media only screen and(max-width: $mobile-breakpoint) {
         --container-padding: 16px;
     }
+
+    --color: #424242;
+    --green: #009688;
+    --red: #f25353;
+    --primary-color: #{$primary-color};
 }
 
 * > * {
@@ -186,4 +191,34 @@ body {
             grid-template-columns: 1fr;
         }
     }
+}
+
+.alert {
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    border-radius: 4px;
+
+    &.center {
+        text-align: center;
+    }
+
+    &.alert-success {
+        background-color: var(--green);
+        color: white;
+    }
+
+    &.alert-error {
+        background-color: var(--red);
+        color: white;
+    }
+
+    &.alert-info {
+        background-color: var(--primary-color);
+        color: white;
+    }
+}
+
+.error {
+    color: var(--red);
 }

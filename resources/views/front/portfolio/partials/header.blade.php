@@ -10,7 +10,7 @@
             </li>
             <li>
                 <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-mobile">Obtenir un devis</a>
-                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Contact</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Obtenir un devis</a>
             </li>
         </ul>
     </nav>

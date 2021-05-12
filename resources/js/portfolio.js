@@ -1,4 +1,5 @@
 import {isMobile, fadeInAnimation, lazyLoadImages} from "./common";
+import DisableButtonOnFormSubmit from "./modules/DisableButtonOnFormSubmit";
 
 const projetSlider = () => {
     const element = document.querySelector('#projects-slider');
@@ -51,5 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fadeInAnimation();
     import('quicklink').then(mod => {
         mod.listen();
-    })
+    });
+
+    new DisableButtonOnFormSubmit();
 })
