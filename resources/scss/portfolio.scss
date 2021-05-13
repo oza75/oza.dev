@@ -90,10 +90,10 @@
 
         .hero-description {
             text-align: left;
-            padding-top: 20px;
+            //padding-top: 20px;
         }
         .hero-desc {
-            //text-align: justify;
+            text-align: justify;
 
             p {
                 font-size: 16px;
@@ -112,39 +112,39 @@
         .hero-image-wrapper {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            //margin-bottom: 20px;
 
             &::before {
-                top: -180px;
+                top: -50px;
                 right: unset;
                 bottom: 0;
                 left: -34px;
-                height: calc(100% + 200px);
+                height: calc(100% - 12px);
                 width: calc(100% + 50px);
-                background-color: unset;
-                --bytemare-tile-size: 25;
-                --bytemare-color: #E1F5FE;
-                --bytemare-gap: 1;
-                --bytemare-probability: 0, 4;
-
-                background-image: paint(bytemare);
+                background: $primary-color;
+                background-image: url("/assets/images/mobile-hero-bg.jpg");
+                background-size: cover;
+                background-position: center;
                 animation: unset;
                 border-radius: unset;
             }
 
             img {
+                display: flex;
                 width: 152px;
                 height: 152px;
                 border-radius: 50%;
                 object-fit: cover;
                 object-position: center 40%;
                 border: 4px solid white;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.2);
             }
         }
         .hero-title {
             font-size: 20px;
             padding: 0;
             margin-bottom: 15px;
+            margin-top: 15px;
             text-align: center;
         }
     }
@@ -268,6 +268,10 @@
             }
         }
 
+        .competence-card {
+            padding: 32px;
+            height: auto;
+        }
     }
 }
 

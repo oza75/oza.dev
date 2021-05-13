@@ -47,7 +47,7 @@ const heroBg = () => {
 
 document.addEventListener('DOMContentLoaded', function () {
     projetSlider();
-    heroBg();
+    // heroBg();
     lazyLoadImages();
     fadeInAnimation();
     import('quicklink').then(mod => {

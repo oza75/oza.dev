@@ -24,14 +24,15 @@
         <div class="hero-description">
             <h1 class="hero-title fade " data-delay="1">Bonjour, je suis Aboubacar</h1>
             <div class="hero-desc fade " data-delay="2">
-                <p>Je suis développeur web full stack basé au maroc.</p>
+                <p>Je suis développeur web full-stack basé au maroc.</p>
                 <p>
                     Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonces ou encore
                     des sites vitrines.
                     J'interviens dans le développement back-end et du front-end et j'apprécie créer des applications de
                     type SPA avec une API Rest.
                 </p>
-                <p>J'apprécie également travailler sur des projets sous Laravel, VueJs ou Angular. N'hésitez pas à me
+                <p class="hide-on-mobile">
+                    J'apprécie également travailler sur des projets sous Laravel, VueJs ou Angular. N'hésitez pas à me
                     contacter pour discuter de votre projet d'application web ! </p>
             </div>
             <div class="hero-actions flex align-center fade " data-delay="3">
