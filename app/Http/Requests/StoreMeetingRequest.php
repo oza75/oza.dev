@@ -29,8 +29,8 @@ class StoreMeetingRequest extends FormRequest
             'full_name_rdv' => ['required', 'min:3', 'max:255', 'string'],
             'email_rdv' => ['required', 'email'],
             'site_type_rdv' => ['required'],
-            'date' => ['required'],
-            'time' => ['required'],
+            'date' => ['required', 'date'],
+            'time' => ['required', 'date_format:H:i'],
         ];
     }
 }

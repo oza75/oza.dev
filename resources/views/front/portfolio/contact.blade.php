@@ -32,7 +32,7 @@
                 <form action="{{route('contact.store')}}" method="post" class="contact-form fade" data-delay="3">
                     @csrf
                     <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
-                        <x-input name="full_name" required minlength="30" label="Votre nom et prénom"
+                        <x-input name="full_name" required minlength="3" label="Votre nom et prénom"
                                  placeholder="Nom et prénom"></x-input>
                         <x-input name="email" type="email" required label="Votre Email"
                                  placeholder="Votre adresse email"></x-input>
@@ -63,7 +63,7 @@
                 <form action="{{route('meeting.store')}}#rdv" method="post" class="contact-form fade" data-delay="4">
                     @csrf
                     <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
-                        <x-input name="full_name_rdv" id="full_name_rdv" required minlength="30"
+                        <x-input name="full_name_rdv" id="full_name_rdv" required minlength="3"
                                  label="Votre nom et prénom" placeholder="Nom et prénom"></x-input>
                         <x-input name="email_rdv" id="email_rdv" type="email" required label="Votre Email"
                                  placeholder="Votre adresse email"></x-input>
