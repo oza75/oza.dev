@@ -8,7 +8,7 @@ Vous avez reçu une nouvelle demande de contact. Voici ces informations de conta
 - **Type**: {{$contact->parsedSiteName()}}
 - **Pays**: {{$contact->country}}
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => route('hubble.show', ['key' => $contact->id, 'name' => 'contacts'])])
     Voir les details
 @endcomponent
 

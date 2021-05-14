@@ -1,3 +1,8 @@
+if (process.env.hubble) {
+	require('./hubble-webpack.mix.js');
+	return;
+}
+
 const mix = require('laravel-mix');
 const path = require('path');
 const fs = require('fs');

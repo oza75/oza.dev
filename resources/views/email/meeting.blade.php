@@ -10,7 +10,7 @@ Vous avez reçu une nouvelle demande de rendez-vous. Voici ces informations de c
 - **Date**: {{$meeting->date}}
 - **Heure**: {{$meeting->time}}
 
-@component('mail::button', ['url' => ''])
+@component('mail::button', ['url' => route('hubble.show', ['key' => $meeting->id, 'name' => 'meetings'])])
     Voir les details
 @endcomponent
 

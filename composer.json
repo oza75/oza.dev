@@ -15,6 +15,7 @@
         "laravel/framework": "^v8.40.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.1",
+        "oza75/laravel-hubble": "^0.1.7",
         "spatie/laravel-sitemap": "^5.9",
         "stevebauman/location": "^6.1"
     },

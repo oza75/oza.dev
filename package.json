@@ -16,7 +16,10 @@
         "rollup:watch:portfolio": "rollup -c rollup.config.js -w --environment BUILD:development,BUILD_FILE:resources/js/portfolio.js",
         "rollup:dev:portfolio": "rollup -c rollup.config.js --environment BUILD:development,BUILD_FILE:resources/js/portfolio.js",
         "prod": "mix --production && yarn rollup:prod",
-        "production": "mix --production"
+        "production": "mix --production",
+        "hubble:dev": "mix --mix-config hubble-webpack.mix.js",
+        "hubble:watch": "mix watch --mix-config hubble-webpack.mix.js -- --watch-options-poll=1000",
+        "hubble:prod": "mix --mix-config hubble-webpack.mix.js --production"
     },
     "devDependencies": {
         "@rollup/plugin-babel": "^5.2.2",
@@ -39,6 +42,7 @@
         "rollup-plugin-terser": "^7.0.2",
         "sass": "^1.32.0",
         "sass-loader": "8.*",
+        "vue-loader": "^15.9.5",
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
@@ -46,6 +50,7 @@
         "css-paint-polyfill": "^2.0.0",
         "glider-js": "^1.7.3",
         "quicklink": "^2.0.0",
-        "turbolinks": "^5.2.0"
+        "turbolinks": "^5.2.0",
+        "vue": "^2.6.12"
     }
 }

@@ -10,6 +10,7 @@
 @endsection()
 @section('body-classes', 'contact-page')
 @section('content')
+    <?php $setting = \App\Models\Setting::query()->latest()->first() ?>
     <?php $optionTypes = \App\Models\Contact::$types ?>
     <?php $status = session('success', null) ?>
     <section class="container contact-container">
@@ -89,12 +90,18 @@
         <ul class="faq-questions">
             <li class="faq-question fade" data-delay="2">
                 <div class="faq-question-title">Quels sont vos disponibilités ?</div>
-                <p class="faq-question-desc">
-                    Je suis actuellement en mission et je ne serai pas disponible avant <strong>fin avril 2021</strong>.
-                    Vous pouvez
-                    toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau
-                    pour le développement de votre projet.
-                </p>
+                @if(!$setting->isAvailable())
+                    <p class="faq-question-desc">
+                        Je suis actuellement en mission et je ne serai pas disponible avant le <strong>{{$setting->availableDate()}}</strong>.
+                        Vous pouvez
+                        toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau
+                        pour le développement de votre projet.
+                    </p>
+                @else
+                    <p class="faq-question-desc">
+                        Je suis actuellement disponible. Vous pouvez faire une demande de devis et je vous répondrais dans les meilleurs délai.
+                    </p>
+                @endif
             </li>
             <li class="faq-question fade" data-delay="3">
                 <div class="faq-question-title">Quels sont vos tarifs ?</div>
