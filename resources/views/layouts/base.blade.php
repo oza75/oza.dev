@@ -31,6 +31,7 @@
 
         gtag('config', 'G-NYM9WFW47X');
     </script>
+    @include('front.portfolio.partials.js-php-vars')
     <link rel="apple-touch-icon" sizes="57x57" href="{{asset('favicon/apple-icon-57x57.png')}}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('favicon/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('favicon/apple-icon-72x72.png') }}">

@@ -1,5 +1,6 @@
 import {isMobile, fadeInAnimation, lazyLoadImages} from "./common";
 import DisableButtonOnFormSubmit from "./modules/DisableButtonOnFormSubmit";
+import Recaptcha from "./modules/recaptcha";
 
 const projetSlider = () => {
     const element = document.querySelector('#projects-slider');
@@ -55,4 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     new DisableButtonOnFormSubmit();
+
+    new Recaptcha(".recaptcha").register();
 })

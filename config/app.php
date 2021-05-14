@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        \App\Utilities\Javascript\JavascriptServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

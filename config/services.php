@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'recaptcha' => [
+        'public_key' => env('RECAPTCHA_PUBLIC_KEY'),
+        'private_key' => env('RECAPTCHA_PRIVATE_KEY')
+    ],
+
 ];

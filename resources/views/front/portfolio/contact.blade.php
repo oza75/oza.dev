@@ -24,6 +24,9 @@
                             href="#rdv">planifier un rendez-vous</a> sur Google Meet pour discuter de votre projet en visio.</span>
                 </p>
             </div>
+            @error('recaptcha')
+            <div class="alert alert-error">{{$message}}</div>
+            @enderror
             @if($status == 'contact')
                 <div class="alert alert-success contact-form fade" data-delay="3">
                     Votre demande de devis a été bien reçu. Je vous répondrais bientôt. En attendant, vous pouvez lire
@@ -42,7 +45,9 @@
                               :options="$optionTypes"></x-select>
                     <x-textarea name="description" required label="Description"
                                 placeholder="Description de votre projet" rows="10" minlength="30"></x-textarea>
-                    <button type="submit" class="btn btn-primary mobile-full">Envoyer</button>
+                    <button type="submit" class="btn btn-primary mobile-full recaptcha" id="contact-btn">Envoyer
+                    </button>
+                    <div id="contact-btn-recaptcha" class="hide"></div>
                 </form>
             @endif
         </div>
@@ -54,6 +59,9 @@
                     Organiser une réunion sur Google Meet pour parler de votre projet plus en profondeur.
                 </p>
             </div>
+            @error('recaptcha')
+            <div class="alert alert-error">{{$message}}</div>
+            @enderror
             @if($status == 'meeting')
                 <div class="alert alert-success contact-form fade" data-delay="4">
                     Votre demande de rendez-vous a été prise en compte. Vous recevrez très vite un mail pour vous
@@ -77,7 +85,8 @@
                         <x-input name="time" label="Sélectionner une heure" required
                                  placeholder="Sélectionner une heure" type="time"></x-input>
                     </div>
-                    <button type="submit" class="btn btn-primary mobile-full">Planifier</button>
+                    <button type="submit" class="btn btn-primary mobile-full recaptcha" id="meeting-btn">Planifier</button>
+                    <div id="meeting-btn-recaptcha" class="hide"></div>
                 </form>
             @endif
         </div>
@@ -92,14 +101,16 @@
                 <div class="faq-question-title">Quels sont vos disponibilités ?</div>
                 @if(!$setting->isAvailable())
                     <p class="faq-question-desc">
-                        Je suis actuellement en mission et je ne serai pas disponible avant le <strong>{{$setting->availableDate()}}</strong>.
+                        Je suis actuellement en mission et je ne serai pas disponible avant le
+                        <strong>{{$setting->availableDate()}}</strong>.
                         Vous pouvez
                         toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau
                         pour le développement de votre projet.
                     </p>
                 @else
                     <p class="faq-question-desc">
-                        Je suis actuellement disponible. Vous pouvez faire une demande de devis et je vous répondrais dans les meilleurs délai.
+                        Je suis actuellement disponible. Vous pouvez faire une demande de devis et je vous répondrais
+                        dans les meilleurs délai.
                     </p>
                 @endif
             </li>
