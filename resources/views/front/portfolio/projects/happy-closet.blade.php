@@ -116,7 +116,7 @@
                 </p>
 
                 <p>
-                    J'ai donc du créer un package laravel qui me permettra de générer des administration a la volet et
+                    J'ai donc dû créer un package laravel qui me permettra de générer des administration à la volée et
                     qui pourra être
                     utiliser pour mes projets future. Le package <a
                         href="https://github.com/oza75/laravel-hubble"><strong>oza75/laravel-hubble</strong> </a>est
@@ -143,7 +143,10 @@
             </div>
         </section>
         <section class="project-navigations fade" data-delay="1">
-            <div></div>
+            <div class="project-navigation">
+                <div class="label">Projet Précédent</div>
+                <a href="{{route('projects.nossaveurs')}}" class="title">Nossaveurs.fr</a>
+            </div>
             <div class="project-navigation">
                 <div class="label">Projet suivant</div>
                 <a href="{{route('projects.urbateur')}}" class="title">Urbateur</a>

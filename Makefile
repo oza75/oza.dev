@@ -44,7 +44,7 @@ provision: ## Configure la machine distante
 
 .PHONY: lint
 lint: ./vendor/bin/phpstan phpstan.neon ## Lance phpstan pour l'analyse static que code
-	./vendor/bin/phpstan analyse --memory-limit=2G
+	docker-compose exec -u sail "laravel.test" ./vendor/bin/phpstan analyse --memory-limit=2G
 .PHONY: build-assets
  build-assets:
 	$(sail) yarn prod

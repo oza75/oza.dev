@@ -1,12 +1,9 @@
 @extends('layouts.portfolio')
 @section('seo')
-    <meta name="description" content="Développeur web full-stack à casablanca au maroc">
+    <meta name="description" content="Développeur web full-stack spécialisé dans la création des site d'é-commerce, d'annonce et de site vitrine à casablanca au maroc">
     <meta name="keywords"
           content="Développeur de site web, Développeur web, Développeur front-end, Développeur back-end, Développeur maroc, Développeur Casablanca">
 @endsection
-@section('styles')
-    <link href="{{ mix('css/portfolio.css', 'assets') }}" rel="stylesheet">
-@endsection()
 @section('content')
     <section class="container portfolio-section hero-section flex align-center ">
         <div class="hero-image-wrapper fade ">
@@ -26,7 +23,7 @@
             <div class="hero-desc fade " data-delay="2">
                 <p>Je suis développeur web full-stack basé au maroc.</p>
                 <p>
-                    Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonces ou encore
+                    Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonce ou encore
                     des sites vitrines.
                     J'interviens dans le développement back-end et du front-end et j'apprécie créer des applications de
                     type SPA avec une API Rest.
@@ -120,7 +117,7 @@
                     <div class="project-desc">
                         Chef de projet, développeur back-end et front-end pour la plateforme Happy
                         closet.
-                        Happy closet est une plateforme de e-commerce spécialiser dans le domaine de la maternité.
+                        Happy closet est une plateforme de e-commerce spécialisé dans le domaine de la maternité.
                     </div>
                 </div>
             </div>

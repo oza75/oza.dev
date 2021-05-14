@@ -1,6 +1,7 @@
 @extends('layouts.portfolio')
+@section('title', "Obtenez gratuitement un devis pour votre futur projet web")
 @section('seo')
-    <meta name="description" content="Développeur web full-stack à casablanca au maroc">
+    <meta name="description" content="Obtenez gratuitement une estimation du coût de votre futur projet web">
     <meta name="keywords"
           content="Développeur de site web, Développeur web, Développeur front-end, Développeur back-end, Développeur maroc, Développeur Casablanca">
 @endsection
@@ -10,6 +11,7 @@
 @section('body-classes', 'contact-page')
 @section('content')
     <?php $optionTypes = \App\Models\Contact::$types ?>
+    <?php $status = session('success', null) ?>
     <section class="container contact-container">
         <div class="contact-form-wrapper">
             <div class="contact-header">
@@ -21,19 +23,24 @@
                             href="#rdv">planifier un rendez-vous</a> sur Google Meet pour discuter de votre projet en visio.</span>
                 </p>
             </div>
-            @if(session('success') == 'contact')
+            @if($status == 'contact')
                 <div class="alert alert-success contact-form fade" data-delay="3">
-                    Votre demande de devis a été bien reçu. Nous allons vous répondre bientôt !
+                    Votre demande de devis a été bien reçu. Je vous répondrais bientôt. En attendant, vous pouvez lire
+                    les questions fréquentes <a href="#faq">ici</a>
                 </div>
             @else
                 <form action="{{route('contact.store')}}" method="post" class="contact-form fade" data-delay="3">
                     @csrf
                     <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
-                        <x-input name="full_name" required minlength="30" label="Votre nom et prénom" placeholder="Nom et prénom"></x-input>
-                        <x-input name="email" type="email" required  label="Votre Email" placeholder="Votre adresse email"></x-input>
+                        <x-input name="full_name" required minlength="30" label="Votre nom et prénom"
+                                 placeholder="Nom et prénom"></x-input>
+                        <x-input name="email" type="email" required label="Votre Email"
+                                 placeholder="Votre adresse email"></x-input>
                     </div>
-                    <x-select name="site_type" required id="type" label="Sélectionner un type" :options="$optionTypes"></x-select>
-                    <x-textarea name="description" required label="Description" placeholder="Description de votre projet" rows="10" minlength="30"></x-textarea>
+                    <x-select name="site_type" required id="type" label="Sélectionner un type"
+                              :options="$optionTypes"></x-select>
+                    <x-textarea name="description" required label="Description"
+                                placeholder="Description de votre projet" rows="10" minlength="30"></x-textarea>
                     <button type="submit" class="btn btn-primary mobile-full">Envoyer</button>
                 </form>
             @endif
@@ -46,22 +53,28 @@
                     Organiser une réunion sur Google Meet pour parler de votre projet plus en profondeur.
                 </p>
             </div>
-            @if(session('success') == 'meeting')
+            @if($status == 'meeting')
                 <div class="alert alert-success contact-form fade" data-delay="4">
                     Votre demande de rendez-vous a été prise en compte. Vous recevrez très vite un mail pour vous
-                    confirmer le rendez-vous.
+                    confirmer le rendez-vous. En attendant, vous pouvez lire
+                    les questions fréquentes <a href="#faq" style="color: white; text-decoration: underline">ici</a>
                 </div>
             @else
-                <form action="{{route('meeting.store')}}" method="post" class="contact-form fade" data-delay="4">
+                <form action="{{route('meeting.store')}}#rdv" method="post" class="contact-form fade" data-delay="4">
                     @csrf
                     <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
-                        <x-input name="full_name_rdv" id="full_name_rdv" required minlength="30" label="Votre nom et prénom" placeholder="Nom et prénom"></x-input>
-                        <x-input name="email_rdv" id="email_rdv" type="email" required  label="Votre Email" placeholder="Votre adresse email"></x-input>
+                        <x-input name="full_name_rdv" id="full_name_rdv" required minlength="30"
+                                 label="Votre nom et prénom" placeholder="Nom et prénom"></x-input>
+                        <x-input name="email_rdv" id="email_rdv" type="email" required label="Votre Email"
+                                 placeholder="Votre adresse email"></x-input>
                     </div>
-                    <x-select name="site_type_rdv" required id="type_rdv" label="Sélectionner un type" :options="$optionTypes"></x-select>
+                    <x-select name="site_type_rdv" required id="type_rdv" label="Sélectionner un type"
+                              :options="$optionTypes"></x-select>
                     <div class="grid grid-cols-2 grid-col-gap-1 mobile-grid-1">
-                        <x-input name="date" label="Sélectionner une date"  required min="{{now()->toDateString()}}" placeholder="Sélectionner une date" type="date"></x-input>
-                        <x-input name="time"  label="Sélectionner une heure" required placeholder="Sélectionner une heure" type="time"></x-input>
+                        <x-input name="date" label="Sélectionner une date" required min="{{now()->toDateString()}}"
+                                 placeholder="Sélectionner une date" type="date"></x-input>
+                        <x-input name="time" label="Sélectionner une heure" required
+                                 placeholder="Sélectionner une heure" type="time"></x-input>
                     </div>
                     <button type="submit" class="btn btn-primary mobile-full">Planifier</button>
                 </form>
@@ -87,7 +100,8 @@
                 <div class="faq-question-title">Quels sont vos tarifs ?</div>
                 <p class="faq-question-desc">
                     La tarification dépend du projet et surtout du temps qui sera nécessaire pour le mener à bien. À
-                    titre indicatif mon tarif journalier moyen se situe aux alentour de <strong>1000dhs/jour</strong>.
+                    titre indicatif mon tarif journalier moyen se situe aux alentour
+                    de @include('front.portfolio.partials.price').
                 </p>
             </li>
             <li class="faq-question fade" data-delay="3">
@@ -99,7 +113,7 @@
             <li class="faq-question fade" data-delay="3">
                 <div class="faq-question-title">Faites-vous la partie design des projets ?</div>
                 <p class="faq-question-desc">
-                    Je ne suis malheureusement pas en capacité d'effectuer le design d'une application aussi il sera
+                    Je ne suis malheureusement pas en capacité d'effectuer le design d'une application. Il sera donc
                     nécessaire de fournir le design si la mission le nécessite. <strong>Je vous invite à contacter un
                         graphiste.</strong>
                 </p>

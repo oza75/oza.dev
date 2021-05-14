@@ -36,6 +36,7 @@ class NewMeetingMailable extends Mailable implements ShouldQueue
     {
         return $this
             ->subject("Une nouvelle demande de rendez-vous")
+            ->from($this->meeting->email, $this->meeting->full_name)
             ->markdown('email.meeting', [
                 'meeting' => $this->meeting
             ]);

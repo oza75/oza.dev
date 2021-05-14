@@ -6,6 +6,7 @@ Vous avez reçu une nouvelle demande de contact. Voici ces informations de conta
 - **Nom et Prénom**: {{$contact->full_name}}
 - **Email**: {{$contact->email}}
 - **Type**: {{$contact->parsedSiteName()}}
+- **Pays**: {{$contact->country}}
 
 @component('mail::button', ['url' => ''])
     Voir les details

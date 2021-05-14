@@ -6,6 +6,7 @@ Vous avez reçu une nouvelle demande de rendez-vous. Voici ces informations de c
 - **Nom et Prénom**: {{$meeting->full_name}}
 - **Email**: {{$meeting->email}}
 - **Type**: {{$meeting->parsedSiteName()}}
+- **Pays**: {{$meeting->country}}
 - **Date**: {{$meeting->date}}
 - **Heure**: {{$meeting->time}}
 

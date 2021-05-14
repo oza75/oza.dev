@@ -11,7 +11,7 @@
         <div class="project-header">
             <h1 class="project-title fade">Urbateur</h1>
             <p class="project-desc fade" data-delay="1">Développement back-end et front-end de la plateforme
-                fink</p>
+                urbateur</p>
         </div>
 
         <section class="">

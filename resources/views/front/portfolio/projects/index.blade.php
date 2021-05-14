@@ -6,9 +6,6 @@
     <meta name="keywords"
           content="Développeur web, Développeur web full-stack, Développeur web à casablanca, Développeur web au maroc"/>
 @endsection
-@section('styles')
-    <link href="{{ mix('css/portfolio.css', 'assets') }}" rel="stylesheet">
-@endsection()
 @section('content')
     <div class="container realisations">
         <div class="project-header">
@@ -16,8 +13,29 @@
             <p class="project-desc fade" data-delay="1">Voici un éventail des projets sur lesquels je suis intervenus.</p>
         </div>
 
-        <div class="projects " id="projects-slider">
+        <div class="projects" id="projects-slider">
             <div class="project-card fade" data-delay="2">
+                <div class="project-img-wrapper">
+                    <picture>
+                        <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.png')}}" type="image/png">
+                        <img loading="lazy" data-src="{{asset('assets/images/projects/nossaveurs/nossaveurs.png')}}"
+                             class="project-img"
+                             alt="Nossaveurs">
+                    </picture>
+                </div>
+                <div class="project-details">
+                    <div class=" flex align-center space-between project-card-header">
+                        <span class="project-title">Nossaveurs.fr</span>
+                        <a href="{{route('projects.nossaveurs')}}" rel="nofollow" class="project-link">Détails</a>
+                    </div>
+                    <div class="project-desc">
+                        Chef de projet, développeur back-end et front-end pour la plateforme nossaveurs.fr.
+                        nossaveurs.fr est un site web d'annonce de produits alimentaires.
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade" data-delay="3">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet.png')}}"
                          class="project-img"
@@ -35,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card fade" data-delay="3">
+            <div class="project-card fade" data-delay="4">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/urbateur.png')}}" class="project-img"
                          alt="Urbateur">
@@ -51,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card fade" data-delay="4">
+            <div class="project-card fade" data-delay="5">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/fink.ma.png')}}" class="project-img"
                          alt="Fink.ma">
@@ -66,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card fade" data-delay="5">
+            <div class="project-card fade" data-delay="6">
                 <div class="project-img-wrapper">
                     <img loading="lazy" data-src="{{asset('assets/images/projects/123bain.fr.png')}}"
                          class="project-img"

@@ -31,29 +31,32 @@
             </div>
             <div class="flex space-between project-columns fade" data-delay="3">
                 <p>
-                    Ce projet consistait à la création d'un site web d'annonce permettant de vendre ou de trouver des plats ou autre produits alimentaires.
-
+                    Ce projet consistait à la création d'un site web d'annonce permettant de vendre ou de trouver des
+                    plats ou autres produits alimentaires. Il s'agissait donc de mettre en place une marketplace
+                    permettant aux personnes ayant des talents culinaires de vendre leurs plats ou autres produits
+                    alimentaires.
                 </p>
                 <p>
-                    Dans un premier temps il a fallu concevoir la maquette du site afin de bien cerner les besoins du
-                    client et d'avoir une vision globale du projet. Ensuite, il a fallu concevoir la structure des
-                    données et de la base de données afin de répondre au mieux aux attentes de la plateforme.
+                    La principale difficulté de cette mission était la recherche de produits alimentaires. En effet,
+                    la plateforme offre plusieurs façons aux utilisateurs de rechercher un produit notamment la
+                    recherche à proximité, la recherche dans une région, ville, département ou commune etc...
                 </p>
             </div>
         </section>
         <section class="project-columns ">
             <picture>
-                <source srcset="{{asset('assets/images/projects/happy-closet/home.webp')}}" type="image/webp">
-                <source srcset="{{asset('assets/images/projects/happy-closet/home.png')}}" type="image/png">
-                <img loading="lazy" data-src="{{asset('assets/images/projects/happy-closet/home.webp')}}" width="100%"
+                <source srcset="{{asset('assets/images/projects/nossaveurs/home.webp')}}" type="image/webp">
+                <source srcset="{{asset('assets/images/projects/nossaveurs/home.png')}}" type="image/png">
+                <img loading="lazy" data-src="{{asset('assets/images/projects/nossaveurs/home.webp')}}" width="100%"
                      height="auto"
-                     class="project-image mobile-mb-20 fade" data-delay="2" alt="Page d'accueil de happy closet">
+                     class="project-image mobile-mb-20 fade" data-delay="2" alt="Page de recherche de nossaveurs">
             </picture>
 
             <div class="fade" data-delay="3">
                 <h2 class="project-sub-title ">Intégration de la maquette</h2>
                 <p>
-                    Une fois la maquette constitué, il a fallu passer à son intégration et commencer à donner vie au
+                    La maquette ayant été fourni par le designer, il a fallu passer à son intégration et commencer à
+                    donner vie au
                     projet.
                     L'outil <a href="https://sass-lang.com/">SASS</a> a été utilisé afin de faciliter l'écriture du CSS
                     et de mieux l'organiser.
@@ -81,20 +84,26 @@
         </section>
         <section class="project-columns ">
             <div class="fade" data-delay="2">
-                <h2 class="project-sub-title">Défilement infini</h2>
-                <p>Le défilement infini permet de charger automatiquement du contenu lors du scroll de l'utilisateur.
-                    Ceci permet de capter l'attention
-                    de l'utilisateur et de le garder le plus longtemps possible sur le site. </p>
-
+                <h2 class="project-sub-title">Une recherche pertinente</h2>
                 <p>
-                    C'est une fonctionnalité que nous trouvons sur les sites comme facebook, twitter, youtube etc...
-                    Nous l'avons donc utiliser pour charger automatiquement des annonces et maintenir le plus longtemps
-                    possible l'utilisateur sur le site.
+                    La recherche étant un critère très important pour un site de ce genre, nous avons utilisé
+                    différentes technologies afin d'améliorer la performance et efficacité de la recherche. Notamment
+                    pour la recherche à proximité, il a fallu utiliser des techniques permettant de faire une recherche
+                    spatiale à travers les données GeoJson des différentes villes, région, commune etc...
+                </p>
+                <p>
+                    Pouvoir utiliser le site sur n'importe quel appareil avec n'importe quelle taille écran étant un
+                    aspect vital pour le site web, il a fallu trouver un moyen d'adapter correctement l'interface de la
+                    recherche pour les appareils mobile et les tablettes.
                 </p>
             </div>
-            <video loading="lazy" data-src="{{asset('assets/images/projects/happy-closet/infinite-scroll.mp4')}}"
-                   width="100%" height="auto"
-                   class="project-image fade" data-delay="3" autoplay muted loop playsinline></video>
+            <picture>
+                <source srcset="{{asset('assets/images/projects/nossaveurs/carte.webp')}}" type="image/webp">
+                <source srcset="{{asset('assets/images/projects/nossaveurs/carte.png')}}" type="image/png">
+                <img loading="lazy" data-src="{{asset('assets/images/projects/nossaveurs/carte.webp')}}" width="100%"
+                     height="auto"
+                     class="project-image mobile-mb-20 fade" data-delay="2" alt="Page de recherche de nossaveurs">
+            </picture>
         </section>
         <section class="project-columns mobile-reverse-columns">
             <picture>
@@ -115,11 +124,10 @@
                 </p>
 
                 <p>
-                    J'ai donc du créer un package laravel qui me permettra de générer des administration a la volet et
-                    qui pourra être
-                    utiliser pour mes projets future. Le package <a
-                        href="https://github.com/oza75/laravel-hubble"><strong>oza75/laravel-hubble</strong> </a>est
-                    disponible sur github et packagist.
+                    J'ai donc utilisé le package laravel <a href="https://github.com/oza75/laravel-hubble"><strong>oza75/laravel-hubble</strong></a>
+                    que j'avais créé pour un de mes projets qui me permet de générer des administrations à la volée.
+                    Le package <a href="https://github.com/oza75/laravel-hubble"><strong>oza75/laravel-hubble</strong>
+                    </a> est disponible gratuitement sur github et packagist.
                 </p>
             </div>
         </section>
@@ -145,7 +153,7 @@
             <div></div>
             <div class="project-navigation">
                 <div class="label">Projet suivant</div>
-                <a href="{{route('projects.urbateur')}}" class="title">Urbateur</a>
+                <a href="{{route('projects.happy-closet')}}" class="title">Happy Closet</a>
             </div>
         </section>
     </div>

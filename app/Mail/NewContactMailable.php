@@ -37,6 +37,7 @@ class NewContactMailable extends Mailable implements ShouldQueue
     {
         return $this
             ->subject("Une nouvelle demande de contact")
+            ->from($this->contact->email, $this->contact->full_name)
             ->markdown('email.contact', [
                 'contact' => $this->contact
             ]);

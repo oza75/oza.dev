@@ -10,6 +10,7 @@ use App\Models\Meeting;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Stevebauman\Location\Facades\Location;
 
 class SiteController extends Controller
 {
@@ -27,6 +28,10 @@ class SiteController extends Controller
         ]);
 
         $attributes = $request->only(['full_name', 'email', 'site_type', 'description']);
+
+        [$ip, $countryName] = $this->locationInfo();
+        $attributes['ip_address'] = $ip;
+        $attributes['country'] = $countryName;
 
         /** @var Contact $contact */
         $contact = Contact::query()->create($attributes);
@@ -50,11 +55,27 @@ class SiteController extends Controller
             'time' => $request->get('time'),
         ];
 
+        [$ip, $countryName] = $this->locationInfo();
+        $attributes['ip_address'] = $ip;
+        $attributes['country'] = $countryName;
+
         /** @var Meeting $meeting */
         $meeting = Meeting::query()->create($attributes);
 
         Mail::to(config('mail.my_mail'))->send(new NewMeetingMailable($meeting));
 
-        return redirect(route('portfolio.contact').'#rdv')->with('success', 'meeting');
+        return back()->with('success', 'meeting');
+    }
+
+    /**
+     * @return array
+     */
+    private function locationInfo(): array
+    {
+        $position = Location::get();
+
+        if (!$position) return [null, null];
+
+        return [$position->ip, $position->countryName];
     }
 }
