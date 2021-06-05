@@ -1,8 +1,12 @@
 @extends('layouts.portfolio')
 @section('seo')
-    <meta name="description" content="Développeur web full-stack spécialisé dans la création des site d'é-commerce, d'annonce et de site vitrine à casablanca au maroc">
-    <meta name="keywords"
-          content="Développeur de site web, Développeur web, Développeur front-end, Développeur back-end, Développeur maroc, Développeur Casablanca">
+    <meta name="description" content="Développeur web full-stack spécialisé dans la création des site d'é-commerce, d'annonces et de site vitrines">
+    <meta name="keywords" content="Développeur de site web, Création de site web, Prix site web maroc, Prix site web france">
+    <meta property="og:url" content="{{route('home')}}"/>
+    <link rel="canonical" href="https://www.oza.dev" />
+    <meta property="og:title" content="Aboubacar OUATTARA | Développeur web freelance"/>
+    <meta property="og:description" content="Développeur web full-stack freelance spécialisé dans la création des site d'é-commerce, d'annonces et de site vitrines"/>
+    <meta name="twitter:author" content="@oza_dev_"/>
 @endsection
 @section('content')
     <section class="container portfolio-section hero-section flex align-center ">
@@ -19,11 +23,13 @@
             </picture>
         </div>
         <div class="hero-description">
-            <h1 class="hero-title fade " data-delay="1">Bonjour, je suis Aboubacar</h1>
+            <h1 class="sr-only">Bonjour, je suis Aboubacar, développeur web en freelance</h1>
+            <h2 class="hero-title fade " data-delay="1">Bonjour, je suis Aboubacar</h2>
             <div class="hero-desc fade " data-delay="2">
                 <p>Je suis développeur web full-stack basé au maroc.</p>
                 <p>
-                    Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonce ou encore
+                    Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonce
+                    ou encore
                     des sites vitrines.
                     J'interviens dans le développement back-end et du front-end et j'apprécie créer des applications de
                     type SPA avec une API Rest.
@@ -81,7 +87,8 @@
             <div class="project-card fade" data-delay="2">
                 <div class="project-img-wrapper">
                     <picture>
-                        <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.webp')}}" type="image/webp">
+                        <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.webp')}}"
+                                type="image/webp">
                         <source srcset="{{asset('assets/images/projects/nossaveurs/nossaveurs.png')}}" type="image/png">
                         <img loading="lazy" data-src="{{asset('assets/images/projects/nossaveurs/nossaveurs.png')}}"
                              class="project-img"

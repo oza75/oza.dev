@@ -2,8 +2,12 @@
 @section('title', "Obtenez gratuitement un devis pour votre futur projet web")
 @section('seo')
     <meta name="description" content="Obtenez gratuitement une estimation du coût de votre futur projet web">
-    <meta name="keywords"
-          content="Développeur de site web, Développeur web, Développeur front-end, Développeur back-end, Développeur maroc, Développeur Casablanca">
+    <meta name="keywords" content="Prix d'un site web, Développeur web, Création de site web">
+    <meta property="og:url" content="{{route('portfolio.contact')}}"/>
+    <link rel="canonical" href="https://www.oza.dev/contacts" />
+    <meta property="og:title" content="Obtenez gratuitement un devis pour votre futur projet web"/>
+    <meta property="og:description" content="Obtenez gratuitement une estimation du coût de votre futur projet web"/>
+    <meta name="twitter:author" content="@oza_dev_"/>
 @endsection
 @section('styles')
     <link href="{{ mix('css/contact.css', 'assets') }}" rel="stylesheet">

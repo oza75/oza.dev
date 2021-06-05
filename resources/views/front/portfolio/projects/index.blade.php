@@ -2,9 +2,14 @@
 @section('title', 'Mes réalisations | Portfolio de Ouattara Zié Aboubacar')
 @section('seo')
     <meta name="description"
-          content="Réalisations de OUATTARA Zié Aboubacar, Développeur web full stack connu sous le nom de @oza">
+          content="Réalisations de OUATTARA Zié Aboubacar, Développeur web full stack freelance">
     <meta name="keywords"
-          content="Développeur web, Développeur web full-stack, Développeur web à casablanca, Développeur web au maroc"/>
+          content="Création de site web, Développeur web Full-Stack, Développeur Laravel, Développeur Freelance"/>
+    <meta property="og:url" content="{{route('projects.index')}}"/>
+    <link rel="canonical" href="https://www.oza.dev/réalisations" />
+    <meta property="og:title" content="Mes réalisations | Portfolio de Ouattara Zié Aboubacar'"/>
+    <meta property="og:description" content="Réalisations de OUATTARA Zié Aboubacar, Développeur web full stack freelance"/>
+    <meta name="twitter:author" content="@oza_dev_"/>
 @endsection
 @section('content')
     <div class="container realisations">

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Ouattara Aboubacar | Développeur web à Casablanca')</title>
+    <title>@yield('title', 'Ouattara Aboubacar | Développeur web freelance au maroc')</title>
 @yield('seo')
 <!-- Scripts -->
     @yield('scripts')
@@ -32,9 +32,9 @@
         gtag('config', 'G-NYM9WFW47X');
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196981735-1">
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=UA-196981735-1">
     </script>
-    <script>
+    <script defer>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());

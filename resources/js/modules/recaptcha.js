@@ -24,8 +24,55 @@ export default class Recaptcha {
         return this.options.formValidation;
     }
 
+    isTouchDevice() {
+        return (('ontouchstart' in window) ||
+            (navigator.maxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0));
+    }
+
     register() {
-        this.registerScript();
+        const script = document.querySelector('#recaptcha-script');
+        if (script) {
+            this.scriptRegistered();
+            return;
+        }
+
+        if (!this.isTouchDevice()) {
+            this.items().forEach(element => {
+                const form = element.closest('form');
+                if (form) {
+                    const handler = (event) => {
+                        const script = document.querySelector('#recaptcha-script');
+                        if (script) {
+                            form.removeEventListener('mouseover', handler);
+                            return;
+                        }
+
+                        this.registerScript();
+                        form.removeEventListener('mouseover', handler);
+                    }
+
+                    form.addEventListener('mouseover', handler);
+                }
+            })
+        }
+
+        this.items().forEach(element => {
+            const name = `handleRecaptchaOnClick${this.camelCase(element.id)}`
+            let handler = (event) => {
+                const script = document.querySelector('#recaptcha-script');
+                if (script) return;
+                event.preventDefault();
+                this.registerScript(name);
+                window[name] = () => {
+                    this.scriptRegistered();
+                    element.click();
+                }
+                element.removeEventListener('click', handler);
+            }
+
+            element.addEventListener('click', handler);
+        })
     }
 
     /**
@@ -135,13 +182,19 @@ export default class Recaptcha {
         built.element.setAttribute('data-recaptcha-mounted', true);
     }
 
-    registerScript() {
-        window.handleRecaptcha = this.scriptRegistered.bind(this);
+    registerScript(callback) {
+        if (!callback) {
+            window.handleRecaptcha = this.scriptRegistered.bind(this);
+            callback = 'handleRecaptcha';
+        }
+
         let script = document.querySelector('#recaptcha-script');
         if (!script) {
             script = document.createElement('script');
             script.setAttribute('id', 'recaptcha-script');
-            script.src = 'https://www.google.com/recaptcha/api.js?onload=handleRecaptcha&render=explicit';
+            script.src = `https://www.google.com/recaptcha/api.js?onload=${callback}&render=explicit`;
+            script.defer = true;
+            script.async = true;
             document.head.appendChild(script);
         } else {
             if (window.grecaptcha && window.grecaptcha.render) {

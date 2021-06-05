@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     new DisableButtonOnFormSubmit();
-
-    new Recaptcha(".recaptcha").register();
 })
+
+window.addEventListener('load', function () {
+    window.siteRecaptcha = new Recaptcha(".recaptcha");
+    window.siteRecaptcha.register()
+});
