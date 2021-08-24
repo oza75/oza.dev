@@ -1,6 +1,30 @@
 @extends('layouts.portfolio')
 @section('title', "Obtenez gratuitement un devis pour votre futur projet web")
 @section('seo')
+{{--    <script>--}}
+{{--        function gtag_report_conversion(url) {--}}
+{{--            var callback = function () {--}}
+{{--                if (typeof(url) != 'undefined') {--}}
+{{--                    window.location = url;--}}
+{{--                }--}}
+{{--            };--}}
+{{--            gtag('event', 'conversion', {--}}
+{{--                'send_to': 'AW-355033587/hziDCICbpb0CEPPDpakB',--}}
+{{--                'event_callback': callback--}}
+{{--            });--}}
+{{--            return false;--}}
+{{--        }--}}
+
+{{--        document.addEventListener('DOMContentLoaded', function () {--}}
+{{--            const elements = Array.from(document.querySelectorAll("#meeting-btn, #contact-btn"));--}}
+{{--            elements.forEach(elem => {--}}
+{{--                elem.addEventListener('click', () => {--}}
+{{--                    gtag_report_conversion();--}}
+{{--                });--}}
+{{--            })--}}
+{{--        });--}}
+{{--    </script>--}}
+
     <meta name="description" content="Obtenez gratuitement une estimation du coût de votre futur projet web">
     <meta name="keywords" content="Prix d'un site web, Développeur web, Création de site web">
     <meta property="og:url" content="{{route('portfolio.contact')}}"/>

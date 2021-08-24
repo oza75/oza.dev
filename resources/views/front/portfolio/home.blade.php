@@ -26,7 +26,7 @@
             <h1 class="sr-only">Bonjour, je suis Aboubacar, développeur web en freelance</h1>
             <h2 class="hero-title fade " data-delay="1">Bonjour, je suis Aboubacar</h2>
             <div class="hero-desc fade " data-delay="2">
-                <p>Je suis développeur web full-stack basé au maroc.</p>
+                <p>Je suis développeur web full-stack basé au Quebec, Canada.</p>
                 <p>
                     Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonce
                     ou encore
