@@ -1,11 +1,11 @@
 @extends('layouts.portfolio')
 @section('seo')
     <meta name="description" content="Développeur web full-stack spécialisé dans la création des site d'é-commerce, d'annonces et de site vitrines">
-    <meta name="keywords" content="Développeur de site web, Création de site web, Prix site web maroc, Prix site web france">
+    <meta name="keywords" content="Développeur de site web, Création de site web, Prix site web au canada, Prix site web canada">
     <meta property="og:url" content="{{route('home')}}"/>
     <link rel="canonical" href="https://www.oza.dev" />
-    <meta property="og:title" content="Aboubacar OUATTARA | Développeur web freelance"/>
-    <meta property="og:description" content="Développeur web full-stack freelance spécialisé dans la création des site d'é-commerce, d'annonces et de site vitrines"/>
+    <meta property="og:title" content="Aboubacar OUATTARA | Développeur web au Canada"/>
+    <meta property="og:description" content="Développeur web full-stack au Canada spécialisé dans la création des site d'é-commerce, d'annonces et de site vitrines"/>
     <meta name="twitter:author" content="@oza_dev_"/>
 @endsection
 @section('content')
@@ -23,14 +23,13 @@
             </picture>
         </div>
         <div class="hero-description">
-            <h1 class="sr-only">Bonjour, je suis Aboubacar, développeur web en freelance</h1>
+            <h1 class="sr-only">Bonjour, je suis Aboubacar, développeur web au Quebec, Canada</h1>
             <h2 class="hero-title fade " data-delay="1">Bonjour, je suis Aboubacar</h2>
             <div class="hero-desc fade " data-delay="2">
                 <p>Je suis développeur web full-stack basé au Quebec, Canada.</p>
                 <p>
                     Je suis spécialisé dans la création de site web sur mesure de type boutique en ligne, site d'annonce
-                    ou encore
-                    des sites vitrines.
+                    ou encore des sites vitrines.
                     J'interviens dans le développement back-end et du front-end et j'apprécie créer des applications de
                     type SPA avec une API Rest.
                 </p>
@@ -39,7 +38,7 @@
                     contacter pour discuter de votre projet d'application web ! </p>
             </div>
             <div class="hero-actions flex align-center fade " data-delay="3">
-                <a href="{{route('portfolio.contact')}}" class="btn btn-primary">Obtenir un devis</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary">Me contacter</a>
                 <a href="{{route('portfolio.contact')}}#faq" class="btn btn-outline-primary">Questions fréquentes</a>
             </div>
         </div>

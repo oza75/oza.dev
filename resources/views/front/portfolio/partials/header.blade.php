@@ -10,8 +10,8 @@
                 <a href="{{route('projects.index')}}" class="hide-on-desktop">Réalisations</a>
             </li>
             <li>
-                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-mobile">Obtenir un devis</a>
-                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Devis</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-mobile">Me Contacter</a>
+                <a href="{{route('portfolio.contact')}}" class="btn btn-primary hide-on-desktop">Contact</a>
             </li>
         </ul>
     </nav>

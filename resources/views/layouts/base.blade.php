@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Ouattara Aboubacar | Développeur web freelance au maroc')</title>
+    <title>@yield('title', 'Ouattara Aboubacar | Développeur web au canada')</title>
 @yield('seo')
 <!-- Scripts -->
     @yield('scripts')

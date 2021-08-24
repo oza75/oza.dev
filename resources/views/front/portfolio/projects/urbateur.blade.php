@@ -4,7 +4,7 @@
     <meta name="description"
           content="Projet Urbateur réalisé par OUATTARA Zié Aboubacar, Développeur web full stack connu sous le nom de @oza">
     <meta name="keywords"
-          content="Développeur web, Développeur web full-stack, Développeur web à casablanca, Développeur web au maroc"/>
+          content="Développeur web, Développeur web full-stack, Développeur web au Quebec, Développeur web au Canada"/>
 @endsection
 @section('content')
     <div class="container">

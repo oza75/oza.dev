@@ -1,5 +1,5 @@
 @extends('layouts.portfolio')
-@section('title', "Obtenez gratuitement un devis pour votre futur projet web")
+@section('title', "Contact | Développeur Web Full-Stack au Canada")
 @section('seo')
 {{--    <script>--}}
 {{--        function gtag_report_conversion(url) {--}}
@@ -44,11 +44,10 @@
     <section class="container contact-container">
         <div class="contact-form-wrapper">
             <div class="contact-header">
-                <p class="contact-header-label fade">Obtenir un devis</p>
-                <h1 class="contact-header-title fade" data-delay="2">Obtenez gratuitement un devis</h1>
-                <p class="contact-header-desc fade" data-delay="3">Merci de donner quelques détails sur votre projet
-                    afin d'obtenir un devis gratuitement. Plus vos informations seront précises plus votre devis sera
-                    réaliste. <span class="hide-on-desktop">Vous pouvez aussi <a
+                <p class="contact-header-label fade">Contact</p>
+                <h1 class="contact-header-title fade" data-delay="2">Me Contacter</h1>
+                <p class="contact-header-desc fade" data-delay="3">Merci de donner quelques détails
+                    a fin de m'aider à avoir une idée de votre projet. <span class="hide-on-desktop">Vous pouvez aussi <a
                             href="#rdv">planifier un rendez-vous</a> sur Google Meet pour discuter de votre projet en visio.</span>
                 </p>
             </div>
@@ -57,7 +56,7 @@
             @enderror
             @if($status == 'contact')
                 <div class="alert alert-success contact-form fade" data-delay="3">
-                    Votre demande de devis a été bien reçu. Je vous répondrais bientôt. En attendant, vous pouvez lire
+                    Votre demande de contact a été bien reçu. Je vous répondrais bientôt. En attendant, vous pouvez lire
                     les questions fréquentes <a href="#faq">ici</a>
                 </div>
             @else
@@ -128,12 +127,15 @@
             <li class="faq-question fade" data-delay="2">
                 <div class="faq-question-title">Quels sont vos disponibilités ?</div>
                 @if(!$setting->isAvailable())
+{{--                    <p class="faq-question-desc">--}}
+{{--                        Je suis actuellement en mission et je ne serai pas disponible avant le--}}
+{{--                        <strong>{{$setting->availableDate()}}</strong>.--}}
+{{--                        Vous pouvez--}}
+{{--                        toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau--}}
+{{--                        pour le développement de votre projet.--}}
+{{--                    </p>--}}
                     <p class="faq-question-desc">
-                        Je suis actuellement en mission et je ne serai pas disponible avant le
-                        <strong>{{$setting->availableDate()}}</strong>.
-                        Vous pouvez
-                        toutefois faire une demande de devis afin de prévoir en amont un planning et réserver un créneau
-                        pour le développement de votre projet.
+                        Actuellement je cherche des missions à temps partiel (20h/semaines).
                     </p>
                 @else
                     <p class="faq-question-desc">
@@ -153,7 +155,8 @@
             <li class="faq-question fade" data-delay="3">
                 <div class="faq-question-title">Effectuez-vous des missions en Agence ?</div>
                 <p class="faq-question-desc">
-                    J'effectue l'ensemble de mes missions à distance.
+                    J'effectue majoritairement mes missions à distance. Mais cela dit, je peux aussi venir en Agence
+                    si la mission l'exige réellement.
                 </p>
             </li>
             <li class="faq-question fade" data-delay="3">

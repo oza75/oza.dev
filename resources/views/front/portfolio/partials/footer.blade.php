@@ -2,6 +2,17 @@
     <div class="section-title fade" data-delay="1">Me retrouver</div>
     <ul class="flex align-center social-network-cards">
         <li>
+            <a href="https://www.linkedin.com/in/aboubacar-o-53660311b/" rel="noopener noreferrer" target="_blank"
+               class="social-network-card flex align-center github fade" data-delay="2">
+                <div class="card-content">
+                    <div class="card-title">Linkedin</div>
+                    <div class="card-link"><span style="color: var(--primary-color)">Profil</span></div>
+                </div>
+                <img loading="lazy" data-src="{{asset('assets/images/linkedin.png')}}" class="card-icon" alt="Linkedin"
+                     width="50" height="50">
+            </a>
+        </li>
+        <li>
             <a href="https://github.com/oza75" rel="noopener noreferrer" target="_blank"
                class="social-network-card flex align-center github fade" data-delay="2">
                 <div class="card-content">
